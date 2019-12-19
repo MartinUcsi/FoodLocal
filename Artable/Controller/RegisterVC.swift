@@ -59,30 +59,34 @@ class RegisterVC: UIViewController {
  
         activityIndicator.startAnimating()
         
+        
         if let email = emailTxt.text, email.isNotEmpty, let username = usernameTxt.text, username.isNotEmpty , let password = passwordTxt.text, password.isNotEmpty {
+            
+            guard let confirmPass = confirmPassTxt.text, confirmPass == password else {
+                simpleAlert(title: "Error", msg: "Passwords do not match.")
+                activityIndicator.stopAnimating()
+                return
+            }
             
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
               
+                
                 if error == nil {
                     //User create success, navigate to another ViewController
                     print ("register success")
                     self.activityIndicator.stopAnimating()
-                    
+                    self.dismiss(animated: true, completion: nil)
                 }else{
                     print(error?.localizedDescription)
                     
-                    let alert = UIAlertController(title: "Oops!", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
+                    //Give user UIAlert to show them error
+                    Auth.auth().handleFireAuthError(error: error!, vc: self)
                     self.activityIndicator.stopAnimating()
                 }
             }
         }else{
-           let alert = UIAlertController(title: "Oops!", message: "Please Fill in all the Required Fields", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
-           self.present(alert, animated: true, completion: nil)
-            
+            //Give user UIAlert to show them error
+            self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
             self.activityIndicator.stopAnimating()
             
         }

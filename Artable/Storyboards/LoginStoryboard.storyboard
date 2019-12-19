@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="jcK-iJ-K4G">
             <objects>
-                <viewController id="XUl-Ry-biF" sceneMemberID="viewController">
+                <viewController id="XUl-Ry-biF" customClass="LoginVC" customModule="Artable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5aS-dH-4ee">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,6 +50,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.83529411764705885" green="0.39215686274509803" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPassClicked:" destination="XUl-Ry-biF" eventType="touchUpInside" id="Iac-Gp-lSB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-Lp-qob" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181.33333333333331" width="374" height="40"/>
@@ -61,6 +64,9 @@
                                         <state key="normal" title="Log In ">
                                             <color key="titleColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="XUl-Ry-biF" eventType="touchUpInside" id="Nrb-Jk-DOB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8r-73-UWv" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233.33333333333331" width="374" height="40"/>
@@ -86,6 +92,9 @@
                                         <state key="normal" title="Continue as guest">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="XUl-Ry-biF" eventType="touchUpInside" id="NHh-n8-UdB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -109,6 +118,11 @@
                         <viewLayoutGuide key="safeArea" id="TIh-NF-9Qm"/>
                     </view>
                     <navigationItem key="navigationItem" id="i00-vT-ngz"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="OoQ-fL-U3i" id="dW7-SP-oEJ"/>
+                        <outlet property="emailTxt" destination="JeD-lt-d7P" id="Bc4-ww-LPL"/>
+                        <outlet property="passTxt" destination="SIt-8l-dRg" id="osE-yh-HzE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FA9-NJ-rTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

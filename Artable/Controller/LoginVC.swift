@@ -7,24 +7,64 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var passTxt: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+   
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func forgotPassClicked(_ sender: UIButton) {
+        
+        let vc = ForgotPasswordVC()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func loginClicked(_ sender: UIButton) {
+        
+        activityIndicator.startAnimating()
+        
+        if let email = emailTxt.text, email.isNotEmpty, let password = passTxt.text, password.isNotEmpty {
+        
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+              
+                if error == nil {
+                    // User sign-in success, nagivate to HomeVC
+                    print("Sign-in Sucess")
+                    self.activityIndicator.stopAnimating()
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }else{
+                    print(error?.localizedDescription)
+                    
+                    //Give user UIAlert to show them error
+                    Auth.auth().handleFireAuthError(error: error!, vc: self)
+                    self.activityIndicator.stopAnimating()
+                    
+                    
+                }
+              
+            }
+        }else{
+            
 
+            //Give user UIAlert to show them error
+            self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
+            self.activityIndicator.stopAnimating()
+        }
+            
+    }
+    
+    @IBAction func guestClicked(_ sender: UIButton) {
+       self.dismiss(animated: true, completion: nil)
+    }
 }
