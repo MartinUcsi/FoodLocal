@@ -17,6 +17,20 @@ struct Category {
     var isActive : Bool = true
     var timeStamp: Timestamp
     
+    init(
+        name: String,
+        id: String,
+        imgUrl: String,
+        isActive: Bool = true,
+        timeStamp: Timestamp) {
+        
+        self.name = name
+        self.id = id
+        self.imgUrl = imgUrl
+        self.isActive = isActive
+        self.timeStamp = timeStamp
+    }
+    
     
     init(data : [String : Any]) {
         self.name  = data["name"] as? String ?? "no name"
@@ -25,5 +39,17 @@ struct Category {
         self.isActive = data["isActive"] as? Bool ?? true
         self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
         
+    }
+    
+    //function convert model into dictionary
+    static func modelToData(category: Category) -> [String: Any]{
+        let data : [String: Any] = [
+            "name" : category.name,
+            "id" : category.id,
+            "imgUrl" : category.imgUrl,
+            "isActive" : category.isActive,
+            "timeStamp" : category.timeStamp
+        ]
+        return data
     }
 }

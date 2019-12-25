@@ -18,23 +18,90 @@ class ProductsVC: UIViewController {
     // Variables
     var products = [Product]()
     var category : Category!
+    var db: Firestore!
+    var listener : ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
+        setupTableView()
+//        let product = Product.init(name: "Black Tofu (黑豆腐)" , id: "jfjdf", category: "Nature", price: 24.66, productDescription: "haha very nice", imageUrl: "https://sedap.com.my/upload/file/image/IMG_4080.jpg", timeStampt: Timestamp() , stock: 0, favorite: false)
+//        products.append(product)
         
-        let product = Product.init(name: "Black Tofu (黑豆腐)" , id: "jfjdf", category: "Nature", price: 24.66, productDescription: "haha very nice", imageUrl: "https://sedap.com.my/upload/file/image/IMG_4080.jpg", timeStampt: Timestamp() , stock: 0, favorite: false)
-        products.append(product)
-        
+    
+    }
+    func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
-
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupQuery()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove()
+        products.removeAll()
+        tableView.reloadData()
+    }
+    
+    func setupQuery(){
+        listener = db.products(category: category.id).addSnapshotListener({ (snap, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let product = Product.init(data: data)
+                
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change: change, product: product)
+                case .modified:
+                    self.onDucumentModified(change: change, product: product)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                }
+            })
+        })
+    }
+    
+    
+    
     
 
 }
 
 extension ProductsVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func onDocumentAdded(change: DocumentChange, product: Product){
+        let newIndex = Int(change.newIndex)
+        products.insert(product, at: newIndex)
+        tableView.insertRows(at: [IndexPath(item: newIndex, section: 0)], with: .none)
+    }
+    func onDucumentModified(change: DocumentChange, product: Product){
+        if change.newIndex == change.oldIndex {
+            //Item changed, but remained in the same position
+            let index = Int(change.newIndex)
+            products[index] = product
+            tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
+        }else{
+            //Item changed and changed position
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            products.remove(at: oldIndex)
+            products.insert(product, at: newIndex)
+            
+            tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item:newIndex, section: 0))
+        }
+    }
+    func onDocumentRemoved(change: DocumentChange){
+        let oldIndex = Int(change.oldIndex)
+        products.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .left)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
@@ -49,6 +116,15 @@ extension ProductsVC : UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ProductDetailVC()
+        let selectedProduct = products[indexPath.row]
+        vc.product = selectedProduct
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }

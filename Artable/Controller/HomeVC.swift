@@ -27,7 +27,18 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         setupCollectionView()
+        setupInitialAnonymousUser()
         
+    }
+    
+    func setupInitialAnonymousUser(){
+        if Auth.auth().currentUser == nil{
+            Auth.auth().signInAnonymously { (result, error) in
+                if let error = error{
+                    debugPrint(error)
+                }
+            }
+        }
     }
     
     func setupCollectionView(){
@@ -39,7 +50,7 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setCategoriesListener()
         
-        if let _ = Auth.auth().currentUser{
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
             // We are logged in
             loginOutBtn.title = "Logout"
         }else{
@@ -76,21 +87,41 @@ class HomeVC: UIViewController {
     
     
     @IBAction func loginOutClicked(_ sender: UIBarButtonItem) {
-        if let _ = Auth.auth().currentUser {
-            // We are logged in
-            do{
-                try Auth.auth().signOut()
-                presentLoginController()
-                print("Logout success")
-            }catch{
-                print(error.localizedDescription)
-                //Give user UIAlert to show them error
-                Auth.auth().handleFireAuthError(error: error, vc: self)
-            }
-        }else{
-            // User haven't logged in
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous{
             presentLoginController()
+        }else{
+            do {
+                try Auth.auth().signOut()
+                Auth.auth().signInAnonymously { (result, error) in
+                    if let error = error{
+                        debugPrint(error)
+                    }
+                    self.presentLoginController()
+                }
+            } catch {
+                debugPrint(error)
+            }
         }
+        
+        
+//        if let _ = Auth.auth().currentUser {
+//            // We are logged in
+//            do{
+//                try Auth.auth().signOut()
+//                presentLoginController()
+//                print("Logout success")
+//            }catch{
+//                print(error.localizedDescription)
+//                //Give user UIAlert to show them error
+//                Auth.auth().handleFireAuthError(error: error, vc: self)
+//            }
+//        }else{
+//            // User haven't logged in
+//            presentLoginController()
+//        }
     }
     
     // function to load the LoginStorboard

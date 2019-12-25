@@ -20,5 +20,15 @@ struct Product {
     var stock : Int
    // var favorite : Bool
     
+    init(data: [String : Any]) {
+        self.name = data ["name"] as? String ?? "no name"
+        self.id = data["id"] as? String ?? ""
+        self.category = data["category"] as? String ?? ""
+        self.price = data["price"] as? Double ?? 0.0
+        self.productDescription = data["productDescription"] as? String ?? ""
+        self.imageUrl = data["imgUrl"] as? String ?? ""
+        self.timeStampt = data["timeStamp"] as? Timestamp ?? Timestamp()
+        self.stock = data["stock"] as? Int ?? 0 
+    }
     
 }

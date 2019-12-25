@@ -68,8 +68,13 @@ class RegisterVC: UIViewController {
                 return
             }
             
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-              
+            guard let authUser = Auth.auth().currentUser else{
+                return
+            }
+            
+            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+            
+            authUser.link(with: credential) { (result, error) in
                 
                 if error == nil {
                     //User create success, navigate to another ViewController
@@ -83,7 +88,25 @@ class RegisterVC: UIViewController {
                     Auth.auth().handleFireAuthError(error: error!, vc: self)
                     self.activityIndicator.stopAnimating()
                 }
+                
             }
+            
+//            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//
+//
+//                if error == nil {
+//                    //User create success, navigate to another ViewController
+//                    print ("register success")
+//                    self.activityIndicator.stopAnimating()
+//                    self.dismiss(animated: true, completion: nil)
+//                }else{
+//                    print(error?.localizedDescription)
+//
+//                    //Give user UIAlert to show them error
+//                    Auth.auth().handleFireAuthError(error: error!, vc: self)
+//                    self.activityIndicator.stopAnimating()
+//                }
+//            }
         }else{
             //Give user UIAlert to show them error
             self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
