@@ -49,7 +49,7 @@ class AddEditCategoryVC: UIViewController {
     
     //Action
     @IBAction func addCategoryClicked(_ sender: Any) {
-        activityIndicator.startAnimating()
+       
         uploadImageThenDocument()
     }
     
@@ -60,6 +60,8 @@ class AddEditCategoryVC: UIViewController {
                 activityIndicator.stopAnimating()
                 return
         }
+         activityIndicator.startAnimating()
+        
         //Step 1: Turn the image into Data
         guard let imageData = image.jpegData(compressionQuality: 0.2) else {return}
         
@@ -86,11 +88,11 @@ class AddEditCategoryVC: UIViewController {
                        self.handleError(error: error, msg: "Unable to retrieve image Url.")
                        return
                    }else{
-                   guard let url = url else {return}
-                   print(url)
-                   
-                   //Step 6: Upload the new Category document to the Firestore categories collection.
-                   self.uploadDocument(url: url.absoluteString)
+                       guard let url = url else {return}
+                       print(url)
+                       
+                       //Step 6: Upload the new Category document to the Firestore categories collection.
+                       self.uploadDocument(url: url.absoluteString)
                    }
                }
             }
