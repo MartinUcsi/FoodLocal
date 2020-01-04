@@ -17,8 +17,6 @@ extension String{
 
 extension UIViewController {
     
-   
-    
     func simpleAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -26,5 +24,20 @@ extension UIViewController {
     }
 }
 
-
+extension Int {
+    
+    func penniesToFormattedCurrency() -> String {
+        // If the int this function is being called on its 1234
+        // dollars = 1234/100 = $12.34
+        let dollars = Double(self) / 100
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        if let dollarString = formatter.string(from: dollars as NSNumber) {
+            return dollarString
+        }
+        return "$0.00"
+        
+    }
+}
 

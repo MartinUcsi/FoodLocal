@@ -76,17 +76,18 @@ class RegisterVC: UIViewController {
             
             authUser.link(with: credential) { (result, error) in
                 
-                if error == nil {
-                    //User create success, navigate to another ViewController
-                    print ("register success")
-                    self.activityIndicator.stopAnimating()
-                    self.dismiss(animated: true, completion: nil)
-                }else{
-                    print(error?.localizedDescription)
-                    
+                if let error = error {
                     //Give user UIAlert to show them error
-                    Auth.auth().handleFireAuthError(error: error!, vc: self)
+                    Auth.auth().handleFireAuthError(error: error, vc: self)
                     self.activityIndicator.stopAnimating()
+                    
+                }else{
+
+                    guard let firUser = result?.user else { return }
+                    let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+                    // Upload to firestore
+                    self.createFirestoreUser(user: artUser)
+                    
                 }
                 
             }
@@ -116,6 +117,25 @@ class RegisterVC: UIViewController {
 
     }
     
+    func createFirestoreUser(user: User){
+        // Step 1: Create document reference
+        let newUserRef = Firestore.firestore().collection("users").document(user.id)
+        
+        // Step 2: Create model data
+        let data = User.modelToData(user: user)
+        
+        // Step3: Upload to Firestore
+        newUserRef.setData(data) { (error) in
+            if let error = error{
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                debugPrint("Unable to upload new user document : \(error.localizedDescription)")
+            }else{
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.activityIndicator.stopAnimating()
+        }
+        
+    }
     
     
 
