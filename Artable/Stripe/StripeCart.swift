@@ -16,21 +16,23 @@ final class _StripeCart {
     var cartItems = [Product]()
     private let stripeCreditCardCut = 0.034
     private let flatFeeCents = 30
- //   var shippingFees = 500
     
+    //var shippingFees = 500
+    var shippingFees = 0
     
     
     // Variable for subtotal, processing fees, total, shippingFees
     
-    var shippingFees: Int {
-        var amount = 500
-        if cartItems.count > 4 {
-            amount += 100
-        }
-        
-        
-        return amount
-    }
+//
+//    var shippingFees: Int {
+//        var amount = 500
+//        if cartItems.count > 4 {
+//            amount += 100
+//        }
+//
+//
+//        return amount
+//    }
     
     var subtotal: Int {
         var amount = 0

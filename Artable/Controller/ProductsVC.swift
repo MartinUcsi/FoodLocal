@@ -28,19 +28,19 @@ class ProductsVC: UIViewController, ProductCellDelegate {
         super.viewDidLoad()
         db = Firestore.firestore()
         setupTableView()
-//        let product = Product.init(name: "Black Tofu (黑豆腐)" , id: "jfjdf", category: "Nature", price: 24.66, productDescription: "haha very nice", imageUrl: "https://sedap.com.my/upload/file/image/IMG_4080.jpg", timeStampt: Timestamp() , stock: 0, favorite: false)
-//        products.append(product)
-        
+
     
     }
     func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupQuery()
+       
     }
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()

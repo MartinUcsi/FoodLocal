@@ -19,7 +19,7 @@ target 'Artable' do
 
   # Pods for Artable
   shared_pods
-  pod 'Stripe'
+  pod 'Stripe', '15.0.1'
   
 end
 

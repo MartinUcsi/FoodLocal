@@ -287,7 +287,7 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - Stripe (18.3.0)
+  - Stripe (15.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -297,7 +297,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - IQKeyboardManagerSwift
   - Kingfisher (~> 4.0)
-  - Stripe
+  - Stripe (= 15.0.1)
 
 SPEC REPOS:
   trunk:
@@ -352,8 +352,8 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  Stripe: 35b9a54e698c82163d2ef105187a996d009fd386
+  Stripe: 2c4d0a88817361a102886315ff452d90f65e898b
 
-PODFILE CHECKSUM: 770f0808c80df72251bebd53bb7eea1a86c13b43
+PODFILE CHECKSUM: f14671a29b87ec365bfd6c4ba59e25868cb0d0bf
 
 COCOAPODS: 1.8.4
