@@ -11,22 +11,41 @@ import Foundation
 struct Order {
     var id : String
     var amount : Double
+    var customerName : String
+    
+    var phoneNumber : String
+    var lineOne : String
+    var lineTwo : String
+    
     var item = [String]()
+    
     
     
     init(
         id : String,
         amount :Double,
+        customerName : String,
+        phoneNumber : String,
+        lineOne : String,
+        lineTwo : String,
         item : [String] = []) {
         
         self.id = id
         self.amount = amount
+        self.customerName = customerName
+        self.phoneNumber = phoneNumber
+        self.lineOne = lineOne
+        self.lineTwo = lineTwo
         self.item = item
     }
     
     init(data: [String : Any]) {
         self.id = data ["id"] as? String ?? ""
         self.amount = data ["amount"] as? Double ?? 0.0
+        self.customerName = data ["customerName"] as? String ?? ""
+        self.phoneNumber = data ["phoneNumber"] as? String ?? ""
+        self.lineOne = data ["lineOne"] as? String ?? ""
+        self.lineTwo = data ["lineTwo"] as? String ?? ""
         self.item = data ["item"] as? [String] ?? []
         
     }
@@ -35,7 +54,11 @@ struct Order {
         let data : [String: Any] = [
             "id" : order.id,
             "amount" : order.amount,
-            "item" : order.item[]
+            "customerName" : order.customerName,
+            "phoneNumber" : order.phoneNumber,
+            "lineOne" : order.lineOne,
+            "lineTwo" : order.lineTwo,
+            "item" : order.item
         ]
         return data
     }

@@ -28,7 +28,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     var paymentContext: STPPaymentContext!
     var nickName : String!
     var apt : String = ""
-    var adr = [String]()
+    var addressInfoArray = [String]()
     var amount = 0.0
     
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         
     }
     
-// :-  Place Order Clicked
+// MARK: Place Order Clicked
     
     @IBAction func placeOrderClicked(_ sender: Any) {
 //        simpleAlert(title: "CartItem", msg: "\(StripeCart.cartItems.count)")
@@ -87,17 +87,34 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         
 //        paymentContext.requestPayment()
 //        activityIndicator.startAnimating()
-        print(adr)
+        
+       // print("\(addressInfoArray[2])")
         
         activityIndicator.startAnimating()
+        // Variable
         let userId = Auth.auth().currentUser?.uid
         let totalAmount: Double = (Double(StripeCart.total))/100
+        let CustomerName = addressInfoArray[0]
+        let PhoneNumber = addressInfoArray[1]
+        let LineOne = addressInfoArray[2]
+        let LineTwo = addressInfoArray[3]
+        
         //print(totalAmount)
         //upload document
         var docRef: DocumentReference!
+
+//        let order = Order.init(id: userId!,
+//                               amount: totalAmount,
+//                               customerName: CustomerName,
+//                               item: itemArray)
         let order = Order.init(id: userId!,
                                amount: totalAmount,
+                               customerName: CustomerName,
+                               phoneNumber: PhoneNumber,
+                               lineOne: LineOne,
+                               lineTwo: LineTwo,
                                item: itemArray)
+        
         docRef = Firestore.firestore().collection("order").document()
 
         let data = Order.modelToData(order: order)
@@ -109,22 +126,14 @@ class CheckoutVC: UIViewController, CartItemDelegate {
             self.activityIndicator.stopAnimating()
 
             let alertController = UIAlertController(title: "Sucess", message: "Order Created!", preferredStyle: .alert)
-
-
-
             let OK = UIAlertAction(title: "OK", style: .default) { (action) in
                 self.navigationController?.popToRootViewController(animated: true)
                 StripeCart.clearCart()
                 self.tableView.reloadData()
                 self.setupPaymentInfo()
             }
-
-
             alertController.addAction(OK)
             self.present(alertController, animated: true, completion: nil)
-
-
-
         }
         
     }
@@ -218,7 +227,7 @@ extension CheckoutVC : STPPaymentContextDelegate {
         if address.postalCode == "56000" {
             completion(.valid, nil, [upsGround, fedEx], fedEx)
             apt = "\(address.line2)"
-            adr = [address.name!, address.phone!, address.line1!, address.line2!]
+            addressInfoArray = [address.name!, address.phone!, address.line1!, address.line2!]
         }else {
             completion(.invalid, nil, nil, nil)
         }
