@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import Firebase
 
 class CheckoutVC: UIViewController, CartItemDelegate {
   
@@ -27,6 +28,8 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     var paymentContext: STPPaymentContext!
     var nickName : String!
     var apt : String = ""
+    var adr = [String]()
+    var amount = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +69,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         
     }
     
-    
+// :-  Place Order Clicked
     
     @IBAction func placeOrderClicked(_ sender: Any) {
 //        simpleAlert(title: "CartItem", msg: "\(StripeCart.cartItems.count)")
@@ -80,11 +83,55 @@ class CheckoutVC: UIViewController, CartItemDelegate {
             itemArray.append(StripeCart.cartItems[item].name)
         }
         
-        simpleAlert(title: "CartItem", msg: "\(itemArray)")
+        //simpleAlert(title: "CartItem", msg: "\(itemArray)")
         
 //        paymentContext.requestPayment()
 //        activityIndicator.startAnimating()
+        print(adr)
         
+        activityIndicator.startAnimating()
+        let userId = Auth.auth().currentUser?.uid
+        let totalAmount: Double = (Double(StripeCart.total))/100
+        //print(totalAmount)
+        //upload document
+        var docRef: DocumentReference!
+        let order = Order.init(id: userId!,
+                               amount: totalAmount,
+                               item: itemArray)
+        docRef = Firestore.firestore().collection("order").document()
+
+        let data = Order.modelToData(order: order)
+        docRef.setData(data, merge: true) { (error) in
+            if let error = error {
+                self.handleError(error: error, msg: "Unable to upload new order to firestore")
+                return
+            }
+            self.activityIndicator.stopAnimating()
+
+            let alertController = UIAlertController(title: "Sucess", message: "Order Created!", preferredStyle: .alert)
+
+
+
+            let OK = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.navigationController?.popToRootViewController(animated: true)
+                StripeCart.clearCart()
+                self.tableView.reloadData()
+                self.setupPaymentInfo()
+            }
+
+
+            alertController.addAction(OK)
+            self.present(alertController, animated: true, completion: nil)
+
+
+
+        }
+        
+    }
+    func handleError(error: Error, msg: String){
+        debugPrint(error.localizedDescription)
+        self.simpleAlert(title: "Error", msg: msg)
+        self.activityIndicator.stopAnimating()
     }
     @IBAction func paymentMethodClicked(_ sender: Any) {
         
@@ -171,6 +218,7 @@ extension CheckoutVC : STPPaymentContextDelegate {
         if address.postalCode == "56000" {
             completion(.valid, nil, [upsGround, fedEx], fedEx)
             apt = "\(address.line2)"
+            adr = [address.name!, address.phone!, address.line1!, address.line2!]
         }else {
             completion(.invalid, nil, nil, nil)
         }

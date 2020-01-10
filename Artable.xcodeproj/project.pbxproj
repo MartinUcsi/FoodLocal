@@ -58,6 +58,7 @@
 		5076C59F23BD93CE00B372E5 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C59B23BD939900B372E5 /* CartItemCell.swift */; };
 		5076C5A223BD993100B372E5 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A123BD993100B372E5 /* StripeCart.swift */; };
 		5076C5A723C5C63800B372E5 /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A623C5C63800B372E5 /* StripeApi.swift */; };
+		5076C5A923C81AD000B372E5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A823C81AD000B372E5 /* Order.swift */; };
 		50FFBD5C239F3C2F0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD5E239F405C0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD66239F5A140062CBE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFBD65239F5A140062CBE9 /* LoginVC.swift */; };
@@ -108,6 +109,7 @@
 		5076C59C23BD939900B372E5 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		5076C5A123BD993100B372E5 /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
 		5076C5A623C5C63800B372E5 /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
+		5076C5A823C81AD000B372E5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50FFBD65239F5A140062CBE9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -192,7 +194,6 @@
 				5028115323A33AD000264054 /* XIBs */,
 				50FFBD63239F59600062CBE9 /* View */,
 				50FFBD64239F59650062CBE9 /* Controller */,
-				50FFBD62239F59400062CBE9 /* Storyboards */,
 				50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */,
 				50568D07239DF0C200E09D1F /* Info.plist */,
 			);
@@ -267,6 +268,7 @@
 				5028115D23A378D800264054 /* Category.swift */,
 				5028116A23A72B9300264054 /* Product.swift */,
 				506A374823B5F61C0017A846 /* User.swift */,
+				5076C5A823C81AD000B372E5 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 				50568CFD239DF0BD00E09D1F /* HomeVC.swift */,
 				5028116723A72ABC00264054 /* ProductsVC.swift */,
 				5076C59923BD80F200B372E5 /* CheckoutVC.swift */,
+				50FFBD62239F59400062CBE9 /* Storyboards */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				5028116F23A72D0E00264054 /* ProductCell.swift in Sources */,
 				506A373723AC65EA0017A846 /* ProductDetailVC.swift in Sources */,
 				5076C5A223BD993100B372E5 /* StripeCart.swift in Sources */,
+				5076C5A923C81AD000B372E5 /* Order.swift in Sources */,
 				5028116223A3814C00264054 /* CategoryCell.swift in Sources */,
 				5028116B23A72B9300264054 /* Product.swift in Sources */,
 			);
