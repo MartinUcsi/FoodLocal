@@ -92,6 +92,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         
         activityIndicator.startAnimating()
         // Variable
+     //   let newDocumentID = UUID().uuidString
         let userId = Auth.auth().currentUser?.uid
         let totalAmount: Double = (Double(StripeCart.total))/100
         let CustomerName = addressInfoArray[0]
@@ -102,12 +103,14 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         //print(totalAmount)
         //upload document
         var docRef: DocumentReference!
-
+         docRef = Firestore.firestore().collection("order").document()
 //        let order = Order.init(id: userId!,
 //                               amount: totalAmount,
 //                               customerName: CustomerName,
 //                               item: itemArray)
-        let order = Order.init(id: userId!,
+       // print(docRef.documentID)
+        let order = Order.init(id: docRef.documentID,
+                               customerId: userId!,
                                amount: totalAmount,
                                customerName: CustomerName,
                                phoneNumber: PhoneNumber,
@@ -115,7 +118,8 @@ class CheckoutVC: UIViewController, CartItemDelegate {
                                lineTwo: LineTwo,
                                item: itemArray)
         
-        docRef = Firestore.firestore().collection("order").document()
+       
+        
 
         let data = Order.modelToData(order: order)
         docRef.setData(data, merge: true) { (error) in

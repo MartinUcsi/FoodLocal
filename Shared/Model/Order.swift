@@ -10,19 +10,19 @@ import Foundation
 
 struct Order {
     var id : String
+    var customerId : String
     var amount : Double
     var customerName : String
-    
     var phoneNumber : String
     var lineOne : String
     var lineTwo : String
-    
     var item = [String]()
     
     
     
     init(
         id : String,
+        customerId : String,
         amount :Double,
         customerName : String,
         phoneNumber : String,
@@ -31,6 +31,7 @@ struct Order {
         item : [String] = []) {
         
         self.id = id
+        self.customerId = customerId
         self.amount = amount
         self.customerName = customerName
         self.phoneNumber = phoneNumber
@@ -41,6 +42,7 @@ struct Order {
     
     init(data: [String : Any]) {
         self.id = data ["id"] as? String ?? ""
+        self.customerId = data ["customerId"] as? String ?? ""
         self.amount = data ["amount"] as? Double ?? 0.0
         self.customerName = data ["customerName"] as? String ?? ""
         self.phoneNumber = data ["phoneNumber"] as? String ?? ""
@@ -53,6 +55,7 @@ struct Order {
     static func modelToData(order: Order) -> [String: Any]{
         let data : [String: Any] = [
             "id" : order.id,
+            "customerId" : order.customerId,
             "amount" : order.amount,
             "customerName" : order.customerName,
             "phoneNumber" : order.phoneNumber,
