@@ -59,6 +59,7 @@
 		5076C5A223BD993100B372E5 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A123BD993100B372E5 /* StripeCart.swift */; };
 		5076C5A723C5C63800B372E5 /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A623C5C63800B372E5 /* StripeApi.swift */; };
 		5076C5A923C81AD000B372E5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A823C81AD000B372E5 /* Order.swift */; };
+		5076C5AF23CB791400B372E5 /* paymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5AE23CB791300B372E5 /* paymentMethodVC.swift */; };
 		50FFBD5C239F3C2F0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD5E239F405C0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD66239F5A140062CBE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFBD65239F5A140062CBE9 /* LoginVC.swift */; };
@@ -110,6 +111,7 @@
 		5076C5A123BD993100B372E5 /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
 		5076C5A623C5C63800B372E5 /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
 		5076C5A823C81AD000B372E5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		5076C5AE23CB791300B372E5 /* paymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentMethodVC.swift; sourceTree = "<group>"; };
 		50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50FFBD65239F5A140062CBE9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				50568CFD239DF0BD00E09D1F /* HomeVC.swift */,
 				5028116723A72ABC00264054 /* ProductsVC.swift */,
 				5076C59923BD80F200B372E5 /* CheckoutVC.swift */,
+				5076C5AE23CB791300B372E5 /* paymentMethodVC.swift */,
 				50FFBD62239F59400062CBE9 /* Storyboards */,
 			);
 			path = Controller;
@@ -551,6 +554,7 @@
 				50FFBD6C239F8B0C0062CBE9 /* Extensions.swift in Sources */,
 				506A374C23B7B1600017A846 /* UserService.swift in Sources */,
 				50568CFA239DF0BD00E09D1F /* AppDelegate.swift in Sources */,
+				5076C5AF23CB791400B372E5 /* paymentMethodVC.swift in Sources */,
 				50FFBD66239F5A140062CBE9 /* LoginVC.swift in Sources */,
 				50FFBD7123A08E440062CBE9 /* RoundedViews.swift in Sources */,
 				5028116823A72ABC00264054 /* ProductsVC.swift in Sources */,

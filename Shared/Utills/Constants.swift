@@ -38,6 +38,8 @@ struct Identifiers {
     static let CategoryCell = "CategoryCell"
     static let ProductCell = "ProductCell"
     static let CartItemCell = "CartItemCell"
+    static let backToCheckout = "backToCheckout"
+    static let goToPaymentMethod = "goToPaymentMethod"
 }
 
 struct Segues {

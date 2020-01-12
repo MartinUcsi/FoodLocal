@@ -30,6 +30,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     var apt : String = ""
     var addressInfoArray = [String]()
     var amount = 0.0
+    var selectedPaymentMethod = "" 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         processingFeeLbl.text = StripeCart.processingFees.penniesToFormattedCurrency()
         shippingCostLbl.text = StripeCart.shippingFees.penniesToFormattedCurrency()
         totalLbl.text = StripeCart.total.penniesToFormattedCurrency()
+        
     }
     
     func setupStripeConfig(){
@@ -76,6 +78,10 @@ class CheckoutVC: UIViewController, CartItemDelegate {
 //        let orderName = StripeCart.cartItems.filter { $0.name == "Chinese Crepe" }
 //        print(orderName)
        // print(StripeCart.cartItems)
+        if StripeCart.cartItems.count == 0 {
+            simpleAlert(title: "Error", msg: "There is nothing inside the cart!")
+        }else{
+        
         var itemArray = [String]()
         for item in StripeCart.cartItems.count {
             //print(item)
@@ -116,6 +122,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
                                phoneNumber: PhoneNumber,
                                lineOne: LineOne,
                                lineTwo: LineTwo,
+                               paymentMethod: selectedPaymentMethod,
                                item: itemArray)
         
        
@@ -139,6 +146,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
             alertController.addAction(OK)
             self.present(alertController, animated: true, completion: nil)
         }
+        }
         
     }
     func handleError(error: Error, msg: String){
@@ -148,7 +156,9 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     }
     @IBAction func paymentMethodClicked(_ sender: Any) {
         
-        paymentContext.pushPaymentOptionsViewController()
+        //paymentContext.pushPaymentOptionsViewController()
+        performSegue(withIdentifier: Identifiers.goToPaymentMethod, sender: self)
+        
         
         
     }
@@ -169,10 +179,18 @@ extension CheckoutVC : STPPaymentContextDelegate {
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
         
         // Updating the selected payment method
-        if let paymentMethod = paymentContext.selectedPaymentOption {
-            paymentMethodBtn.setTitle( paymentMethod.label ,for: .normal)
-        } else{
+//        if let paymentMethod = paymentContext.selectedPaymentOption {
+//            //paymentMethodBtn.setTitle( "\(selectedPaymentMethod)" ,for: .normal)
+//            paymentMethodBtn.setTitle( "Please Selected" ,for: .normal)
+//
+//        } else{
+//            paymentMethodBtn.setTitle("Select Method", for: .normal)
+//        }
+//
+        if selectedPaymentMethod == "" {
             paymentMethodBtn.setTitle("Select Method", for: .normal)
+        }else{
+            paymentMethodBtn.setTitle("\(selectedPaymentMethod)", for: .normal)
         }
         
         // Updating the selected shipping method

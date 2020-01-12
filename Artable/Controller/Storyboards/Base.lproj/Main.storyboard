@@ -85,11 +85,11 @@
             <objects>
                 <viewController id="VDZ-V9-fGb" customClass="CheckoutVC" customModule="Artable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tYv-fU-qHt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRu-Ul-FEM" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
-                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <rect key="frame" x="20" y="748" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2jT-Ty-t0Z"/>
@@ -103,11 +103,11 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-aS-TiJ">
-                                <rect key="frame" x="188.5" y="759" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="705" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oap-Vi-paM">
-                                <rect key="frame" x="20" y="563" width="374" height="209"/>
+                                <rect key="frame" x="20" y="509" width="374" height="209"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1s-Wm-XDC">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="1"/>
@@ -237,7 +237,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u2p-cN-88D">
-                                <rect key="frame" x="6" y="108" width="402" height="435"/>
+                                <rect key="frame" x="6" y="20" width="402" height="469"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -268,11 +268,168 @@
                         <outlet property="subtotalLbl" destination="2Fs-uH-Yre" id="4kE-3N-W3f"/>
                         <outlet property="tableView" destination="u2p-cN-88D" id="r2p-9G-M4L"/>
                         <outlet property="totalLbl" destination="ccr-hY-aeN" id="Cnp-wZ-9KM"/>
+                        <segue destination="sC6-FN-AUs" kind="show" identifier="goToPaymentMethod" id="qF4-qs-lvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYU-Ch-AnQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2035" y="-592"/>
+        </scene>
+        <!--Payment MethodVC-->
+        <scene sceneID="Kye-BS-EzL">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="sC6-FN-AUs" customClass="paymentMethodVC" customModule="Artable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AbG-jW-O4m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="zli-kx-zEQ">
+                                <rect key="frame" x="8" y="64" width="398" height="434"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="sR7-fr-l1g">
+                                        <rect key="frame" x="2" y="0.0" width="396" height="175.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOODLOCAL PREFERRED PAYMENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-wY-TuJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="Z7U-Wh-ajt">
+                                                <rect key="frame" x="0.0" y="75.5" width="396" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hC-Y1-QWF" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="CVF-5z-6oi"/>
+                                                            <constraint firstAttribute="width" secondItem="9hC-Y1-QWF" secondAttribute="height" multiplier="1:1" id="QkM-Kc-O5X"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="TouchnGo">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="touchNGoClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="xN0-Dx-jFA"/>
+                                                            <action selector="touchngoClicked:" destination="C2c-Sy-j40" eventType="touchUpInside" id="Vgd-DF-Rza"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRi-8Q-KaM" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="148" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="HRi-8Q-KaM" secondAttribute="height" multiplier="1:1" id="HfE-uG-SL1"/>
+                                                            <constraint firstAttribute="height" constant="100" id="bol-10-B8W"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="Maybank">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="maybankClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="ZBL-ed-Yle"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-W0-Khw" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="296" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="kS9-W0-Khw" secondAttribute="height" multiplier="1:1" id="6Lk-QL-yt8"/>
+                                                            <constraint firstAttribute="height" constant="100" id="Lzx-1T-Roa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="Grabpay">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="grabPayClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="TWj-Qb-mry"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="be7-l1-g4L">
+                                        <rect key="frame" x="2" y="255.5" width="396" height="178.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER PAYMENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aj-q3-7bF">
+                                                <rect key="frame" x="0.0" y="0.0" width="139" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="hhj-yQ-25X">
+                                                <rect key="frame" x="0.0" y="78.5" width="396" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFb-2E-23N" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="8IN-H8-4qk"/>
+                                                            <constraint firstAttribute="width" secondItem="dFb-2E-23N" secondAttribute="height" multiplier="1:1" id="jjs-8V-oqu"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="Cash">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="cashClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="VUp-2g-9rU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jan-GL-c8H" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="148" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="jan-GL-c8H" secondAttribute="height" multiplier="1:1" id="LQM-yx-EF8"/>
+                                                            <constraint firstAttribute="height" constant="100" id="zsh-03-fo4"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="Boost">
+                                                            <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="boostClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="WPT-JD-V6u"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-ry-IQ7" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                                        <rect key="frame" x="296" y="0.0" width="100" height="100"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Fb4-ry-IQ7" secondAttribute="height" multiplier="1:1" id="3Mq-8I-nYk"/>
+                                                            <constraint firstAttribute="height" constant="100" id="OoB-13-dbx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                        <state key="normal" title="Alipay">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="alipayClicked:" destination="sC6-FN-AUs" eventType="touchUpInside" id="BeM-Fe-hlu"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zli-kx-zEQ" firstAttribute="centerX" secondItem="AbG-jW-O4m" secondAttribute="centerX" id="7eL-Ez-cTn"/>
+                            <constraint firstItem="zli-kx-zEQ" firstAttribute="leading" secondItem="AbG-jW-O4m" secondAttribute="leading" constant="8" id="Bem-ii-4Oy"/>
+                            <constraint firstItem="zli-kx-zEQ" firstAttribute="top" secondItem="mhI-ho-azn" secondAttribute="top" constant="20" id="KAP-Qx-SB3"/>
+                            <constraint firstItem="mhI-ho-azn" firstAttribute="trailing" secondItem="zli-kx-zEQ" secondAttribute="trailing" constant="8" id="VNA-pS-kca"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mhI-ho-azn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2sO-xr-v5v"/>
+                    <connections>
+                        <segue destination="VDZ-V9-fGb" kind="show" identifier="backToCheckout" id="lwI-0a-IHL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5EN-ay-6uK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="C2c-Sy-j40" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="-593"/>
         </scene>
         <!--ProductsVC-->
         <scene sceneID="tRN-xm-uJa">
@@ -350,6 +507,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HCb-C6-fnw"/>
-        <segue reference="bp0-PB-9MN"/>
+        <segue reference="lwI-0a-IHL"/>
     </inferredMetricsTieBreakers>
 </document>

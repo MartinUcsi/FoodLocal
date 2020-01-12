@@ -16,7 +16,9 @@ struct Order {
     var phoneNumber : String
     var lineOne : String
     var lineTwo : String
+    var paymentMethod : String
     var item = [String]()
+    
     
     
     
@@ -28,6 +30,7 @@ struct Order {
         phoneNumber : String,
         lineOne : String,
         lineTwo : String,
+        paymentMethod : String,
         item : [String] = []) {
         
         self.id = id
@@ -37,6 +40,7 @@ struct Order {
         self.phoneNumber = phoneNumber
         self.lineOne = lineOne
         self.lineTwo = lineTwo
+        self.paymentMethod = paymentMethod
         self.item = item
     }
     
@@ -48,6 +52,7 @@ struct Order {
         self.phoneNumber = data ["phoneNumber"] as? String ?? ""
         self.lineOne = data ["lineOne"] as? String ?? ""
         self.lineTwo = data ["lineTwo"] as? String ?? ""
+        self.paymentMethod = data ["paymentMethod"] as? String ?? ""
         self.item = data ["item"] as? [String] ?? []
         
     }
@@ -61,6 +66,7 @@ struct Order {
             "phoneNumber" : order.phoneNumber,
             "lineOne" : order.lineOne,
             "lineTwo" : order.lineTwo,
+            "paymentMethod" : order.paymentMethod,
             "item" : order.item
         ]
         return data
