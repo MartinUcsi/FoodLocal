@@ -71,6 +71,7 @@ final class _StripeCart {
     
     func clearCart() {
         cartItems.removeAll()
+        shippingFees = 0 
     }
     
 }
