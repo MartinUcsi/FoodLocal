@@ -60,6 +60,11 @@
 		5076C5A723C5C63800B372E5 /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A623C5C63800B372E5 /* StripeApi.swift */; };
 		5076C5A923C81AD000B372E5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A823C81AD000B372E5 /* Order.swift */; };
 		5076C5AF23CB791400B372E5 /* paymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5AE23CB791300B372E5 /* paymentMethodVC.swift */; };
+		5076C5B423CC555100B372E5 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A123BD993100B372E5 /* StripeCart.swift */; };
+		5076C5B623CC555800B372E5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A374B23B7B15F0017A846 /* UserService.swift */; };
+		5076C5B723CC55E400B372E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A374823B5F61C0017A846 /* User.swift */; };
+		5076C5B823CC55E900B372E5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C5A823C81AD000B372E5 /* Order.swift */; };
+		5076C5BB23CC56D600B372E5 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5028115523A33AF000264054 /* ForgotPasswordVC.swift */; };
 		50FFBD5C239F3C2F0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5B239F3C2F0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD5E239F405C0062CBE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */; };
 		50FFBD66239F5A140062CBE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFBD65239F5A140062CBE9 /* LoginVC.swift */; };
@@ -582,20 +587,25 @@
 				50568D18239DF12400E09D1F /* AdminHomeVC.swift in Sources */,
 				5028116C23A72B9300264054 /* Product.swift in Sources */,
 				5028115B23A360F400264054 /* Firebase+Utills.swift in Sources */,
+				5076C5B823CC55E900B372E5 /* Order.swift in Sources */,
 				5028115C23A378AB00264054 /* RoundedViews.swift in Sources */,
 				5028116323A3814C00264054 /* CategoryCell.swift in Sources */,
 				506A374723B2049C0017A846 /* AddEditProductsVC.swift in Sources */,
 				506A374523B1FBD00017A846 /* AdminProductsVC.swift in Sources */,
+				5076C5B423CC555100B372E5 /* StripeCart.swift in Sources */,
 				50568D14239DF12400E09D1F /* AppDelegate.swift in Sources */,
 				506A373F23B065550017A846 /* AddEditCategoryVC.swift in Sources */,
 				506A373B23AE022B0017A846 /* Constants.swift in Sources */,
 				506A373A23AE02270017A846 /* Extensions.swift in Sources */,
+				5076C5B623CC555800B372E5 /* UserService.swift in Sources */,
 				5028117023A72D0E00264054 /* ProductCell.swift in Sources */,
 				50568D16239DF12400E09D1F /* SceneDelegate.swift in Sources */,
 				5076C59F23BD93CE00B372E5 /* CartItemCell.swift in Sources */,
+				5076C5BB23CC56D600B372E5 /* ForgotPasswordVC.swift in Sources */,
 				506A373923ADFA210017A846 /* HomeVC.swift in Sources */,
 				5028115F23A378D800264054 /* Category.swift in Sources */,
 				506A373C23AE024E0017A846 /* ProductDetailVC.swift in Sources */,
+				5076C5B723CC55E400B372E5 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

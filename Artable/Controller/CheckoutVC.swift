@@ -37,7 +37,9 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         setupTableView()
         setupPaymentInfo()
         setupStripeConfig()
+       
     }
+    
     
     func setupTableView(){
         tableView.delegate = self

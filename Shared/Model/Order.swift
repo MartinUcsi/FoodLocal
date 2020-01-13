@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct Order {
     var id : String
@@ -18,6 +19,7 @@ struct Order {
     var lineTwo : String
     var paymentMethod : String
     var item = [String]()
+    var timeStamp : Timestamp
     
     
     
@@ -31,7 +33,8 @@ struct Order {
         lineOne : String,
         lineTwo : String,
         paymentMethod : String,
-        item : [String] = []) {
+        item : [String] = [],
+        timeStamp : Timestamp = Timestamp()) {
         
         self.id = id
         self.customerId = customerId
@@ -42,6 +45,7 @@ struct Order {
         self.lineTwo = lineTwo
         self.paymentMethod = paymentMethod
         self.item = item
+        self.timeStamp = timeStamp
     }
     
     init(data: [String : Any]) {
@@ -54,6 +58,7 @@ struct Order {
         self.lineTwo = data ["lineTwo"] as? String ?? ""
         self.paymentMethod = data ["paymentMethod"] as? String ?? ""
         self.item = data ["item"] as? [String] ?? []
+        self.timeStamp = data ["timeStamp"] as? Timestamp ?? Timestamp()
         
     }
     
@@ -67,7 +72,9 @@ struct Order {
             "lineOne" : order.lineOne,
             "lineTwo" : order.lineTwo,
             "paymentMethod" : order.paymentMethod,
-            "item" : order.item
+            "item" : order.item,
+            "timeStamp" : order.timeStamp
+            
         ]
         return data
     }
