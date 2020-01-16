@@ -23,6 +23,7 @@ class ForgotPasswordVC: UIViewController {
 
     @IBAction func cancelClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func resetClicked(_ sender: UIButton) {

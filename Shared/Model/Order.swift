@@ -20,7 +20,7 @@ struct Order {
     var paymentMethod : String
     var item = [String]()
     var timeStamp : Timestamp
-    
+    var isCompleted : Bool
     
     
     
@@ -34,7 +34,8 @@ struct Order {
         lineTwo : String,
         paymentMethod : String,
         item : [String] = [],
-        timeStamp : Timestamp = Timestamp()) {
+        timeStamp : Timestamp = Timestamp(),
+        isCompleted : Bool = false) {
         
         self.id = id
         self.customerId = customerId
@@ -46,6 +47,7 @@ struct Order {
         self.paymentMethod = paymentMethod
         self.item = item
         self.timeStamp = timeStamp
+        self.isCompleted = isCompleted
     }
     
     init(data: [String : Any]) {
@@ -59,6 +61,7 @@ struct Order {
         self.paymentMethod = data ["paymentMethod"] as? String ?? ""
         self.item = data ["item"] as? [String] ?? []
         self.timeStamp = data ["timeStamp"] as? Timestamp ?? Timestamp()
+        self.isCompleted = data ["isCompleted"] as? Bool ?? false
         
     }
     
@@ -73,7 +76,8 @@ struct Order {
             "lineTwo" : order.lineTwo,
             "paymentMethod" : order.paymentMethod,
             "item" : order.item,
-            "timeStamp" : order.timeStamp
+            "timeStamp" : order.timeStamp,
+            "isCompleted" : order.isCompleted
             
         ]
         return data

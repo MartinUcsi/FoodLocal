@@ -52,6 +52,7 @@
 		506A374723B2049C0017A846 /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A374623B2049C0017A846 /* AddEditProductsVC.swift */; };
 		506A374923B5F61C0017A846 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A374823B5F61C0017A846 /* User.swift */; };
 		506A374C23B7B1600017A846 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A374B23B7B15F0017A846 /* UserService.swift */; };
+		5073AEEE23CF31A400C8E9AC /* AdminLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073AEED23CF31A400C8E9AC /* AdminLoginVC.swift */; };
 		5076C59A23BD80F200B372E5 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C59923BD80F200B372E5 /* CheckoutVC.swift */; };
 		5076C59D23BD939900B372E5 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076C59B23BD939900B372E5 /* CartItemCell.swift */; };
 		5076C59E23BD939900B372E5 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5076C59C23BD939900B372E5 /* CartItemCell.xib */; };
@@ -110,6 +111,7 @@
 		506A374623B2049C0017A846 /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
 		506A374823B5F61C0017A846 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		506A374B23B7B15F0017A846 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		5073AEED23CF31A400C8E9AC /* AdminLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginVC.swift; sourceTree = "<group>"; };
 		5076C59923BD80F200B372E5 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
 		5076C59B23BD939900B372E5 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		5076C59C23BD939900B372E5 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		50568D12239DF12400E09D1F /* ArtableAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				5073AEE823CF099300C8E9AC /* Xibs */,
 				506A374023B0655A0017A846 /* Controller */,
 				506A374123B065850017A846 /* Storyboards */,
 				50FFBD5D239F405C0062CBE9 /* GoogleService-Info.plist */,
@@ -233,6 +236,7 @@
 		506A374023B0655A0017A846 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5073AEED23CF31A400C8E9AC /* AdminLoginVC.swift */,
 				50568D17239DF12400E09D1F /* AdminHomeVC.swift */,
 				506A374423B1FBD00017A846 /* AdminProductsVC.swift */,
 				506A374623B2049C0017A846 /* AddEditProductsVC.swift */,
@@ -258,6 +262,13 @@
 				506A374B23B7B15F0017A846 /* UserService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5073AEE823CF099300C8E9AC /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		5076C5A023BD991F00B372E5 /* Stripe */ = {
@@ -591,6 +602,7 @@
 				5028115C23A378AB00264054 /* RoundedViews.swift in Sources */,
 				5028116323A3814C00264054 /* CategoryCell.swift in Sources */,
 				506A374723B2049C0017A846 /* AddEditProductsVC.swift in Sources */,
+				5073AEEE23CF31A400C8E9AC /* AdminLoginVC.swift in Sources */,
 				506A374523B1FBD00017A846 /* AdminProductsVC.swift in Sources */,
 				5076C5B423CC555100B372E5 /* StripeCart.swift in Sources */,
 				50568D14239DF12400E09D1F /* AppDelegate.swift in Sources */,

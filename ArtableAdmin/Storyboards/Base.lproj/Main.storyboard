@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.25926068819999998" green="0.28200705079999999" blue="0.35170130080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.25882352941176467" green="0.28235294117647058" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,17 +28,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Psa-M8-KlH" kind="relationship" relationship="rootViewController" id="NBP-tq-yu0"/>
+                        <segue destination="Whf-hG-GtW" kind="relationship" relationship="rootViewController" id="tr4-Oh-IA3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CY-8s-Orw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="98.4375"/>
+            <point key="canvasLocation" x="-496" y="120"/>
         </scene>
-        <!--Admin-->
+        <!--Admin HomeVC-->
         <scene sceneID="6Qp-rH-ZIs">
             <objects>
-                <viewController id="Psa-M8-KlH" customClass="AdminHomeVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Psa-M8-KlH" customClass="AdminHomeVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rP6-nL-0KN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,24 +77,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MJX-kR-jeJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Admin" id="8GL-ZR-EtB">
-                        <barButtonItem key="leftBarButtonItem" title="Login" id="nDg-ZQ-EtJ">
+                    <navigationItem key="navigationItem" id="8GL-ZR-EtB">
+                        <barButtonItem key="leftBarButtonItem" title="-" id="nDg-ZQ-EtJ">
                             <connections>
                                 <action selector="loginOutClicked:" destination="Psa-M8-KlH" id="KYR-kO-E4I"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Logout" id="YY7-dv-pmi"/>
+                            <barButtonItem title="Order" id="Yja-zh-as8">
+                                <connections>
+                                    <action selector="orderClicked:" destination="Psa-M8-KlH" id="xJI-KQ-Ddy"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add" id="YYe-t8-sUO">
+                                <connections>
+                                    <action selector="addClicked:" destination="Psa-M8-KlH" id="Tml-94-SdQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="jCT-zO-7EH" id="F0l-tg-fg9"/>
+                        <outlet property="addBtn" destination="YYe-t8-sUO" id="9Ea-wa-Kys"/>
                         <outlet property="collectionView" destination="2Jm-ey-d5Z" id="1gD-P1-xeD"/>
                         <outlet property="loginOutBtn" destination="nDg-ZQ-EtJ" id="TBh-35-xwb"/>
                         <segue destination="n5m-9n-qJL" kind="show" identifier="ToAddEditCategory" id="85f-tf-bJg"/>
                         <segue destination="xVf-3l-757" kind="show" identifier="toProductsVC" id="Mrf-2l-ud2"/>
+                        <segue destination="Whf-hG-GtW" kind="show" identifier="BackToLoginAdmin" id="QNk-NY-Gt5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtz-t4-Hn5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="98"/>
+            <point key="canvasLocation" x="1009" y="108"/>
         </scene>
         <!--Add Edit CategoryVC-->
         <scene sceneID="1CA-4j-U4c">
@@ -179,6 +194,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1V-GC-NA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1848" y="98"/>
+        </scene>
+        <!--Admin LoginVC-->
+        <scene sceneID="lcg-6N-eS0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CA4-cg-fzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController modalPresentationStyle="fullScreen" id="Whf-hG-GtW" customClass="AdminLoginVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MZa-Ym-pCw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ryj-uP-RCI">
+                                <rect key="frame" x="20" y="108" width="374" height="270.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swy-DN-7dM">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="eric@gmail.com" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-7i-ZWN">
+                                        <rect key="frame" x="0.0" y="34.5" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="giJ-TR-Xs8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTv-pp-YVu">
+                                        <rect key="frame" x="0.0" y="86.5" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SmW-jF-1Xu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKe-Th-qLm">
+                                        <rect key="frame" x="0.0" y="138.5" width="374" height="31"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                        <state key="normal" title="Forgot password?">
+                                            <color key="titleColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvY-um-uzD" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="181.5" width="374" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="R86-mE-zzL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <state key="normal" title="Log In ">
+                                            <color key="titleColor" red="0.95294117649999999" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="Whf-hG-GtW" eventType="touchUpInside" id="5o6-OA-nTO"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oiu-HS-b40">
+                                        <rect key="frame" x="0.0" y="233.5" width="374" height="37"/>
+                                        <color key="color" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="oiu-HS-b40" firstAttribute="centerX" secondItem="Ryj-uP-RCI" secondAttribute="centerX" id="AVu-bT-y1k"/>
+                                    <constraint firstItem="oiu-HS-b40" firstAttribute="top" secondItem="EvY-um-uzD" secondAttribute="bottom" constant="12" id="k9A-Kr-xGG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ryj-uP-RCI" firstAttribute="top" secondItem="ahy-yJ-fp7" secondAttribute="top" constant="20" id="2WP-XS-iNs"/>
+                            <constraint firstItem="ahy-yJ-fp7" firstAttribute="trailing" secondItem="Ryj-uP-RCI" secondAttribute="trailing" constant="20" id="AGt-6J-dNV"/>
+                            <constraint firstItem="Ryj-uP-RCI" firstAttribute="leading" secondItem="ahy-yJ-fp7" secondAttribute="leading" constant="20" id="x0U-hY-voF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ahy-yJ-fp7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bne-JN-jKz"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="oiu-HS-b40" id="ZfA-JZ-nA5"/>
+                        <outlet property="emailTxt" destination="9DW-7i-ZWN" id="pfn-t6-fcT"/>
+                        <outlet property="passTxt" destination="QTv-pp-YVu" id="fDh-H3-z9d"/>
+                        <segue destination="Psa-M8-KlH" kind="show" identifier="ToAdminHomeVC" id="i8j-5R-ztW"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="249" y="108"/>
         </scene>
         <!--Admin ProductsVC-->
         <scene sceneID="WMe-2H-F0E">
@@ -330,6 +430,7 @@
         <image name="camera" width="66" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tr4-Oh-IA3"/>
         <segue reference="85f-tf-bJg"/>
     </inferredMetricsTieBreakers>
 </document>
