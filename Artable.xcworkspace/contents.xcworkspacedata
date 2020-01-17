@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Artable.xcodeproj">
+      location = "group:/Users/martinparker/Apps/Project_Firebase/Artable/Artable.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

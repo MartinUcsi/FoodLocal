@@ -40,6 +40,7 @@ struct Identifiers {
     static let CartItemCell = "CartItemCell"
     static let backToCheckout = "backToCheckout"
     static let goToPaymentMethod = "goToPaymentMethod"
+    static let OrderCell = "OrderCell"
 }
 
 struct Segues {
