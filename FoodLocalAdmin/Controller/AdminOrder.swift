@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class AdminOrder: UIViewController, OrderCellDelegate {
+    
 
     // Outlets
     
@@ -73,6 +74,21 @@ class AdminOrder: UIViewController, OrderCellDelegate {
         
     }
  
+    func orderCompleted(order: Order) {
+        let completeRef = db.collection("order").document(order.id)
+        
+        completeRef.updateData([
+            "isCompleted": true
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+
+    }
+    
  
     
 

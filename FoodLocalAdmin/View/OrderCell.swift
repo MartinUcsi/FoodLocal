@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OrderCellDelegate : class {
-   
+    func orderCompleted(order: Order)
 
 }
 
@@ -41,10 +41,12 @@ class OrderCell: UITableViewCell {
     }
 
     //Action
+  
     @IBAction func completeClicked(_ sender: UIButton) {
-     
+        delegate?.orderCompleted(order: order)
     }
     
+  
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -56,6 +58,7 @@ class OrderCell: UITableViewCell {
         
         var itemArray = ""
         self.order = order
+        self.delegate = delegate
 
         for i in order.item{
             itemArray.append("\(i) \n")
