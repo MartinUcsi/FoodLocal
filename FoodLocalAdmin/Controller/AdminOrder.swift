@@ -50,7 +50,7 @@ class AdminOrder: UIViewController, OrderCellDelegate {
     
     func setOrderListener(){
          
-        listener = db.orders.addSnapshotListener({ (snap, error) in
+        listener = db.collection("order").whereField("isCompleted", isEqualTo: false).order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
