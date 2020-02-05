@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrderCell" rowHeight="202" id="KGk-i7-Jjw" customClass="OrderCell" customModule="FoodLocalAdmin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="521" height="202"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="521" height="202"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzB-ia-efs" customClass="RoundedShadowView" customModule="FoodLocalAdmin" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="505" height="186"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-TE-1lQ" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
+                                <rect key="frame" x="390" y="131" width="100" height="35"/>
+                                <color key="backgroundColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="vej-1U-rqC"/>
+                                    <constraint firstAttribute="height" constant="35" id="zyU-lC-8pM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <state key="normal" title="Complete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlc-VF-x1L">
+                                <rect key="frame" x="25" y="20" width="104.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <color key="textColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bKg-jK-Aum">
+                                <rect key="frame" x="25" y="49" width="118.5" height="109.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CustomerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-Y1-6Gc">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWF-zP-7v6">
+                                        <rect key="frame" x="0.0" y="29" width="118.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PaymentMethod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r5-Nq-eMI">
+                                        <rect key="frame" x="0.0" y="58" width="118.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="77L-yo-BGV">
+                                        <rect key="frame" x="0.0" y="87" width="118.5" height="22.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-jy-4a0">
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ny-Ac-S2H">
+                                                <rect key="frame" x="71" y="0.0" width="47.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bKg-jK-Aum" firstAttribute="leading" secondItem="MzB-ia-efs" secondAttribute="leading" constant="25" id="0tA-3Y-lC3"/>
+                            <constraint firstItem="rlc-VF-x1L" firstAttribute="leading" secondItem="MzB-ia-efs" secondAttribute="leading" constant="25" id="1Z2-nB-CEc"/>
+                            <constraint firstAttribute="trailing" secondItem="uVO-TE-1lQ" secondAttribute="trailing" constant="15" id="9f7-Fv-Mc4"/>
+                            <constraint firstItem="bKg-jK-Aum" firstAttribute="top" secondItem="rlc-VF-x1L" secondAttribute="bottom" constant="8" id="RGo-2O-rw4"/>
+                            <constraint firstAttribute="bottom" secondItem="uVO-TE-1lQ" secondAttribute="bottom" constant="20" id="UkF-ZM-lJI"/>
+                            <constraint firstItem="rlc-VF-x1L" firstAttribute="top" secondItem="MzB-ia-efs" secondAttribute="top" constant="20" id="qaa-oD-j0e"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="MzB-ia-efs" secondAttribute="trailing" constant="8" id="NpD-Ay-GYT"/>
+                    <constraint firstItem="MzB-ia-efs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="QD9-Ff-eof"/>
+                    <constraint firstAttribute="bottom" secondItem="MzB-ia-efs" secondAttribute="bottom" constant="8" id="bXw-wE-obL"/>
+                    <constraint firstItem="MzB-ia-efs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="dXf-yB-jMt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amount" destination="5Ny-Ac-S2H" id="dxy-8K-clm"/>
+                <outlet property="customerName" destination="dcF-Y1-6Gc" id="eGa-VI-4oV"/>
+                <outlet property="customerPhone" destination="jWF-zP-7v6" id="LNW-cn-Pjb"/>
+                <outlet property="orderNumber" destination="rlc-VF-x1L" id="m6d-29-ef2"/>
+                <outlet property="paymentMethodLbl" destination="9r5-Nq-eMI" id="Oxk-rb-Xbg"/>
+            </connections>
+            <point key="canvasLocation" x="50.000000000000007" y="90.401785714285708"/>
+        </tableViewCell>
+    </objects>
+</document>

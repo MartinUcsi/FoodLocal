@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aCB-UZ-0yZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aCB-UZ-0yZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,10 +35,74 @@
             </objects>
             <point key="canvasLocation" x="-496" y="120"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Bg3-HP-7ni">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="lHY-bd-gCg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xM8-Cs-nng">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wz3-dP-tGL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wz3-dP-tGL" firstAttribute="bottom" secondItem="eud-Cc-ij2" secondAttribute="bottom" id="2hY-ni-K7O"/>
+                            <constraint firstItem="Wz3-dP-tGL" firstAttribute="top" secondItem="eud-Cc-ij2" secondAttribute="top" id="2rP-On-lCi"/>
+                            <constraint firstItem="eud-Cc-ij2" firstAttribute="bottom" secondItem="Wz3-dP-tGL" secondAttribute="bottom" id="GfW-nZ-OAM"/>
+                            <constraint firstItem="eud-Cc-ij2" firstAttribute="trailing" secondItem="Wz3-dP-tGL" secondAttribute="trailing" id="UUG-i4-1FY"/>
+                            <constraint firstItem="Wz3-dP-tGL" firstAttribute="leading" secondItem="eud-Cc-ij2" secondAttribute="leading" id="nfd-Ql-leC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eud-Cc-ij2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oPV-rU-b3u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCp-AR-LP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="-576.5625"/>
+        </scene>
+        <!--Admin Order-->
+        <scene sceneID="fHI-nJ-hiu">
+            <objects>
+                <viewController id="cPG-sR-nlm" customClass="AdminOrder" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5nF-Hh-3NT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" id="vJz-ZQ-vs7">
+                                <rect key="frame" x="0.0" y="22" width="414" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RjV-Do-YJ7">
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RjV-Do-YJ7" firstAttribute="top" secondItem="y0u-p0-fqA" secondAttribute="top" id="4wH-Du-QXQ"/>
+                            <constraint firstItem="y0u-p0-fqA" firstAttribute="bottom" secondItem="RjV-Do-YJ7" secondAttribute="bottom" id="9go-5u-O4L"/>
+                            <constraint firstItem="RjV-Do-YJ7" firstAttribute="leading" secondItem="y0u-p0-fqA" secondAttribute="leading" constant="20" id="TDy-Iz-gKY"/>
+                            <constraint firstItem="y0u-p0-fqA" firstAttribute="trailing" secondItem="RjV-Do-YJ7" secondAttribute="trailing" constant="20" id="emq-js-yf8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y0u-p0-fqA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Wo-6y-L2h"/>
+                    <connections>
+                        <outlet property="tableView" destination="RjV-Do-YJ7" id="yWB-8u-ioa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-8J-CDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-586"/>
+        </scene>
         <!--Admin HomeVC-->
         <scene sceneID="6Qp-rH-ZIs">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Psa-M8-KlH" customClass="AdminHomeVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Psa-M8-KlH" customClass="AdminHomeVC" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rP6-nL-0KN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +152,7 @@
                             <barButtonItem title="Order" id="Yja-zh-as8">
                                 <connections>
                                     <action selector="orderClicked:" destination="Psa-M8-KlH" id="xJI-KQ-Ddy"/>
+                                    <segue destination="cPG-sR-nlm" kind="show" id="Mrd-uH-fN4"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Add" id="YYe-t8-sUO">
@@ -114,7 +179,7 @@
         <!--Add Edit CategoryVC-->
         <scene sceneID="1CA-4j-U4c">
             <objects>
-                <viewController id="n5m-9n-qJL" customClass="AddEditCategoryVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="n5m-9n-qJL" customClass="AddEditCategoryVC" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KCU-hI-5oc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +201,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="jg8-P3-sKK" customClass="RoundedImageView" customModule="ArtableAdmin" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="jg8-P3-sKK" customClass="RoundedImageView" customModule="FoodLocalAdmin" customModuleProvider="target">
                                 <rect key="frame" x="107" y="239.5" width="200" height="250"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -148,7 +213,7 @@
                                 <rect key="frame" x="188.5" y="509.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Nk-pSb" customClass="RoundedButton" customModule="ArtableAdmin" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Nk-pSb" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
                                 <rect key="frame" x="20" y="802" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -198,8 +263,7 @@
         <!--Admin LoginVC-->
         <scene sceneID="lcg-6N-eS0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CA4-cg-fzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController modalPresentationStyle="fullScreen" id="Whf-hG-GtW" customClass="AdminLoginVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Whf-hG-GtW" customClass="AdminLoginVC" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZa-Ym-pCw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +300,7 @@
                                             <color key="titleColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvY-um-uzD" customClass="RoundedButton" customModule="Artable" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvY-um-uzD" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181.5" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -277,13 +341,14 @@
                         <segue destination="Psa-M8-KlH" kind="show" identifier="ToAdminHomeVC" id="i8j-5R-ztW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CA4-cg-fzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249" y="108"/>
         </scene>
         <!--Admin ProductsVC-->
         <scene sceneID="WMe-2H-F0E">
             <objects>
-                <viewController id="xVf-3l-757" customClass="AdminProductsVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xVf-3l-757" customClass="AdminProductsVC" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BjZ-rO-ryg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +388,7 @@
         <!--Add Edit ProductsVC-->
         <scene sceneID="HNU-c7-iAY">
             <objects>
-                <viewController id="yYd-wB-FyN" customClass="AddEditProductsVC" customModule="ArtableAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yYd-wB-FyN" customClass="AddEditProductsVC" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="knt-1A-CrO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +425,7 @@
                                 <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="n0d-n8-On5" customClass="RoundedImageView" customModule="ArtableAdmin" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="n0d-n8-On5" customClass="RoundedImageView" customModule="FoodLocalAdmin" customModuleProvider="target">
                                 <rect key="frame" x="107" y="433.5" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -372,7 +437,7 @@
                                 <rect key="frame" x="188.5" y="653.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-ZP-1Cb" customClass="RoundedButton" customModule="ArtableAdmin" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-ZP-1Cb" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
                                 <rect key="frame" x="20" y="807" width="374" height="35"/>
                                 <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
