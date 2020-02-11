@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="384.05797101449281" y="152.67857142857142"/>
         </scene>
-        <!--Seller HomeVC-->
+        <!--Seller-->
         <scene sceneID="Z3d-sP-Ogl">
             <objects>
                 <viewController id="pLb-I6-aRd" customClass="SellerHomeVC" customModule="FoodLocalSeller" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,8 +70,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ia4-gS-ElE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YOK-xk-sme">
+                    <navigationItem key="navigationItem" title="Seller" id="YOK-xk-sme">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Qfe-em-kwX">
+                            <color key="tintColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logoutClicked:" destination="pLb-I6-aRd" id="lfw-4d-MqU"/>
                             </connections>
@@ -126,6 +127,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PXK-yw-jeb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                            <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

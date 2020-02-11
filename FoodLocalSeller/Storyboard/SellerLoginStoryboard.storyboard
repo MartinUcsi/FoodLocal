@@ -247,7 +247,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="dLw-Fc-Cvx"/>
                     <connections>
-                        <outlet property="aceessCodeTxt" destination="51g-Zi-GOB" id="VzZ-hg-SRy"/>
+                        <outlet property="accessCodeTxt" destination="51g-Zi-GOB" id="VzZ-hg-SRy"/>
                         <outlet property="activityIndicator" destination="vtw-pi-mSR" id="8D0-47-jSR"/>
                         <outlet property="confirmPassCheckImg" destination="KP5-zh-Qk0" id="aUn-nN-mEP"/>
                         <outlet property="confirmPassTxt" destination="egI-QN-cao" id="MhE-D0-S6L"/>

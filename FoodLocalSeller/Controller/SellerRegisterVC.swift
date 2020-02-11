@@ -18,7 +18,7 @@ class SellerRegisterVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var confirmPassTxt: UITextField!
-    @IBOutlet weak var aceessCodeTxt: UITextField!
+    @IBOutlet weak var accessCodeTxt: UITextField!
     @IBOutlet weak var passCheckImg: UIImageView!
     @IBOutlet weak var confirmPassCheckImg: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -67,10 +67,16 @@ class SellerRegisterVC: UIViewController {
     @IBAction func registerClicked(_ sender: UIButton) {
         
                 activityIndicator.startAnimating()
+            
                 
+        if let email = emailTxt.text, email.isNotEmpty, let username = usernameTxt.text, username.isNotEmpty , let password = passwordTxt.text, password.isNotEmpty, let accessCode = accessCodeTxt.text, accessCode.isNotEmpty {
+            
+            guard let accessPassCode : String = "999abc", accessPassCode == accessCode else{
+                    simpleAlert(title: "Error", msg: "Access Denied.")
+                    activityIndicator.stopAnimating()
+                    return
+                }
                 
-                if let email = emailTxt.text, email.isNotEmpty, let username = usernameTxt.text, username.isNotEmpty , let password = passwordTxt.text, password.isNotEmpty {
-                    
                     guard let confirmPass = confirmPassTxt.text, confirmPass == password else {
                         simpleAlert(title: "Error", msg: "Passwords do not match.")
                         activityIndicator.stopAnimating()

@@ -100,11 +100,14 @@ class AddEditCategoryVC: UIViewController {
     }
     
     func uploadDocument(url: String){
+        guard let sellerRef = Auth.auth().currentUser?.uid else { return }
+        
         var docRef: DocumentReference!
         var category = Category.init(name: nameTxt.text!,
                                      id: "",
                                      imgUrl: url,
-                                     timeStamp: Timestamp())
+                                     timeStamp: Timestamp(),
+                                     sellerId : sellerRef)
         
         if let categoryToEdit = categoryToEdit{
             //We are Editing, it will update the category
