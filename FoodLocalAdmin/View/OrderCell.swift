@@ -16,6 +16,7 @@ protocol OrderCellDelegate : class {
 class OrderCell: UITableViewCell {
 
     //Outlets
+    @IBOutlet weak var completeBtn: RoundedButton!
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var customerPhone: UILabel!
     @IBOutlet weak var amount: UILabel!

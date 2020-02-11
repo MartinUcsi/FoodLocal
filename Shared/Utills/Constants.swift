@@ -12,11 +12,13 @@ import UIKit
 struct Storyboard {
     static let LoginStoryboard = "LoginStoryboard"
     static let Main = "Main"
+    static let SellerLoginStoryboard = "SellerLoginStoryboard"
+    
 }
 
 struct StoryboardID {
     static let LoginVC = "loginVC"
-
+    static let sellerloginVC = "SellerloginVC" 
 }
 
 struct AppImage {
@@ -51,4 +53,5 @@ struct Segues {
     static let ToFavorites = "ToFavorites"
     static let ToAdminHomeVC = "ToAdminHomeVC"
     static let BackToLoginAdmin = "BackToLoginAdmin"
+  
 }

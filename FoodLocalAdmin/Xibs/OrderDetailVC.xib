@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailVC" customModule="FoodLocalAdmin" customModuleProvider="target">
             <connections>
                 <outlet property="bgView" destination="qzw-wn-FZI" id="4zb-wz-8kT"/>
+                <outlet property="cancelBtn" destination="Fl2-Jp-Cdr" id="GaB-Ls-ckq"/>
+                <outlet property="completeBtn" destination="wQg-Ni-Ifl" id="pID-Io-CkR"/>
                 <outlet property="customerAddress" destination="GBc-js-iV0" id="eRU-4z-zW2"/>
                 <outlet property="itemArrayLbl" destination="XbI-aK-A01" id="tyE-am-LqJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

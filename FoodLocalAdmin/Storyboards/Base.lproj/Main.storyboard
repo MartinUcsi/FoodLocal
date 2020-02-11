@@ -90,7 +90,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y0u-p0-fqA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3Wo-6y-L2h"/>
+                    <navigationItem key="navigationItem" id="3Wo-6y-L2h">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="usC-PU-VTk">
+                            <connections>
+                                <segue destination="cqA-px-g1Q" kind="show" id="Mh1-fT-EyW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="RjV-Do-YJ7" id="yWB-8u-ioa"/>
                     </connections>
@@ -98,6 +104,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-8J-CDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1761" y="-586"/>
+        </scene>
+        <!--HIstory-->
+        <scene sceneID="nrL-iy-qZt">
+            <objects>
+                <viewController id="cqA-px-g1Q" customClass="AdminOrderHistory" customModule="FoodLocalAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FsP-2f-Ptb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" id="x0D-aK-JzH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DWu-kh-Iq6">
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DWu-kh-Iq6" firstAttribute="leading" secondItem="tLb-x1-XgJ" secondAttribute="leading" constant="20" id="2qb-gf-yiV"/>
+                            <constraint firstItem="tLb-x1-XgJ" firstAttribute="bottom" secondItem="DWu-kh-Iq6" secondAttribute="bottom" id="40r-Aa-rqb"/>
+                            <constraint firstItem="tLb-x1-XgJ" firstAttribute="trailing" secondItem="DWu-kh-Iq6" secondAttribute="trailing" constant="20" id="bFb-NF-ss7"/>
+                            <constraint firstItem="DWu-kh-Iq6" firstAttribute="top" secondItem="tLb-x1-XgJ" secondAttribute="top" id="jih-54-vVx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tLb-x1-XgJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HIstory" id="ppS-N2-tDA"/>
+                    <connections>
+                        <outlet property="tableView" destination="DWu-kh-Iq6" id="bsx-rb-Uzx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIW-5f-wiZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2499" y="-587"/>
         </scene>
         <!--Admin HomeVC-->
         <scene sceneID="6Qp-rH-ZIs">

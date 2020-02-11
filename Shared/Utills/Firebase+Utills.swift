@@ -7,7 +7,8 @@
 //
 
 import Firebase
-
+import FirebaseFirestore
+import FirebaseAuth
 extension Firestore{
     var categories : Query{
         return collection("categories").order(by: "timeStamp", descending: true)

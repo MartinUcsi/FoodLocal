@@ -103,6 +103,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="amount" destination="5Ny-Ac-S2H" id="dxy-8K-clm"/>
+                <outlet property="completeBtn" destination="uVO-TE-1lQ" id="IGA-h3-9Hq"/>
                 <outlet property="customerName" destination="dcF-Y1-6Gc" id="eGa-VI-4oV"/>
                 <outlet property="customerPhone" destination="jWF-zP-7v6" id="LNW-cn-Pjb"/>
                 <outlet property="orderNumber" destination="rlc-VF-x1L" id="m6d-29-ef2"/>
