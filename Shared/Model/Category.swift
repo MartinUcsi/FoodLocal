@@ -16,19 +16,22 @@ struct Category {
     var imgUrl: String
     var isActive : Bool = true
     var timeStamp: Timestamp
+    var sellerId : String
     
     init(
         name: String,
         id: String,
         imgUrl: String,
         isActive: Bool = true,
-        timeStamp: Timestamp) {
+        timeStamp: Timestamp,
+        sellerId: String = "") {
         
         self.name = name
         self.id = id
         self.imgUrl = imgUrl
         self.isActive = isActive
         self.timeStamp = timeStamp
+        self.sellerId = sellerId
     }
     
     
@@ -38,6 +41,7 @@ struct Category {
         self.imgUrl = data["imgUrl"] as? String ?? ""
         self.isActive = data["isActive"] as? Bool ?? true
         self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+        self.sellerId = data["sellerId"] as? String ?? ""
         
     }
     
@@ -48,7 +52,8 @@ struct Category {
             "id" : category.id,
             "imgUrl" : category.imgUrl,
             "isActive" : category.isActive,
-            "timeStamp" : category.timeStamp
+            "timeStamp" : category.timeStamp,
+            "sellerId" : category.sellerId
         ]
         return data
     }
