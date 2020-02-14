@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SellerProductCell" rowHeight="203" id="SaH-vc-TE9" customClass="SellerProductCell" customModule="FoodLocalSeller" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="444" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SaH-vc-TE9" id="nfv-3F-aAE">
+                <rect key="frame" x="0.0" y="0.0" width="444" height="203"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-TU-bmz" customClass="RoundedShadowView" customModule="FoodLocalSeller" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="428" height="187"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animal_2" translatesAutoresizingMaskIntoConstraints="NO" id="o4u-4N-GIM" customClass="RoundedImageView" customModule="FoodLocalSeller" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="171" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="o4u-4N-GIM" secondAttribute="height" multiplier="1:1" id="Rew-Xs-1ib"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Za2-Qi-bKC">
+                                <rect key="frame" x="199" y="60" width="209" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cku-A3-EaB">
+                                        <rect key="frame" x="57.5" y="0.0" width="94.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RM7.70" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36r-jW-ygA">
+                                        <rect key="frame" x="54.5" y="30.5" width="100.5" height="36.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                        <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="o4u-4N-GIM" firstAttribute="top" secondItem="OBX-TU-bmz" secondAttribute="top" constant="8" id="38g-LK-tBm"/>
+                            <constraint firstItem="Za2-Qi-bKC" firstAttribute="centerY" secondItem="OBX-TU-bmz" secondAttribute="centerY" id="Cso-70-ETf"/>
+                            <constraint firstItem="Za2-Qi-bKC" firstAttribute="leading" secondItem="o4u-4N-GIM" secondAttribute="trailing" constant="20" id="DyU-x2-fO7"/>
+                            <constraint firstAttribute="trailing" secondItem="Za2-Qi-bKC" secondAttribute="trailing" constant="20" id="OIj-h7-U8B"/>
+                            <constraint firstAttribute="bottom" secondItem="o4u-4N-GIM" secondAttribute="bottom" constant="8" id="UBM-9B-iAa"/>
+                            <constraint firstItem="o4u-4N-GIM" firstAttribute="leading" secondItem="OBX-TU-bmz" secondAttribute="leading" constant="8" id="YEk-2n-wT8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OBX-TU-bmz" firstAttribute="top" secondItem="nfv-3F-aAE" secondAttribute="top" constant="8" id="Ugt-6J-MDN"/>
+                    <constraint firstAttribute="trailing" secondItem="OBX-TU-bmz" secondAttribute="trailing" constant="8" id="dB5-1L-vYB"/>
+                    <constraint firstItem="OBX-TU-bmz" firstAttribute="leading" secondItem="nfv-3F-aAE" secondAttribute="leading" constant="8" id="kYT-dB-Rlv"/>
+                    <constraint firstAttribute="bottom" secondItem="OBX-TU-bmz" secondAttribute="bottom" constant="8" id="rbM-5E-X2U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="uIT-Ib-MuE"/>
+            <connections>
+                <outlet property="productImg" destination="o4u-4N-GIM" id="DvM-P1-IF5"/>
+                <outlet property="productPrice" destination="36r-jW-ygA" id="JAs-Vc-jo1"/>
+                <outlet property="productTitle" destination="cku-A3-EaB" id="9Lu-xw-MVS"/>
+            </connections>
+            <point key="canvasLocation" x="-30.434782608695656" y="68.638392857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="animal_2" width="3150" height="2110"/>
+    </resources>
+</document>

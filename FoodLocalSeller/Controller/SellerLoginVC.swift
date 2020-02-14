@@ -49,7 +49,7 @@ class SellerLoginVC: UIViewController {
                       
                         if error == nil {
 
-                            print("Sign-in Sucess")
+                            print("Seller Sign-in Sucess")
                             self.activityIndicator.stopAnimating()
                             self.dismiss(animated: true, completion: nil)
                             

@@ -1,17 +1,17 @@
 //
-//  AddEditProductsVC.swift
-//  ArtableAdmin
+//  AddSellerProductsVC.swift
+//  FoodLocalSeller
 //
-//  Created by Martin Parker on 24/12/2019.
-//  Copyright © 2019 Martin Parker. All rights reserved.
+//  Created by Martin Parker on 13/02/2020.
+//  Copyright © 2020 Martin Parker. All rights reserved.
 //
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
-
-
-class AddEditProductsVC: UIViewController {
+class AddSellerProductsVC: UIViewController {
 
     //Outlets
     @IBOutlet weak var productNameTxt: UITextField!
@@ -23,6 +23,7 @@ class AddEditProductsVC: UIViewController {
     
     
     //Variable
+    
     var selectedCategory : Category!
     var productToEdit : Product?
     
@@ -30,40 +31,39 @@ class AddEditProductsVC: UIViewController {
     var price = 0.0
     var productDescription = ""
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //create a tap gesture recognizer
-        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped(_:)))
-        
-        tap.numberOfTapsRequired = 1
-        productImgView.isUserInteractionEnabled = true
-        productImgView.addGestureRecognizer(tap)
+          let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped(_:)))
+          
+          tap.numberOfTapsRequired = 1
+          productImgView.isUserInteractionEnabled = true
+          productImgView.addGestureRecognizer(tap)
 
-        // If we are editing, productToEdit != nil
-        if let product = productToEdit{
-            productNameTxt.text = product.name
-            productDescTxt.text = product.productDescription
-            productPriceTxt.text = String(product.price)
-            addBtn.setTitle("Save Changes", for: .normal)
-            
-            if let url = URL(string: product.imageUrl){
-                productImgView.contentMode = .scaleAspectFill
-                productImgView.kf.setImage(with: url)
-        
-            }
-        }
-        
-    
-        
+          // If we are editing, productToEdit != nil
+          if let product = productToEdit{
+              productNameTxt.text = product.name
+              productDescTxt.text = product.productDescription
+              productPriceTxt.text = String(product.price)
+              addBtn.setTitle("Save Changes", for: .normal)
+
+              if let url = URL(string: product.imageUrl){
+                  productImgView.contentMode = .scaleAspectFill
+                  productImgView.kf.setImage(with: url)
+
+              }
+          }
+        print(productToEdit)
     }
+    
     @objc func imgTapped(_ tap:UITapGestureRecognizer){
         launchImgPicker()
     }
     
-    //Action
-    @IBAction func addProductClicked(_ sender: Any) {
-        
+    @IBAction func addProductClicked(_ sender: RoundedButton) {
         uploadImageThenDocument()
     }
     
@@ -155,16 +155,17 @@ class AddEditProductsVC: UIViewController {
         
     }
     
-    func handleError(error: Error, msg: String){
-        debugPrint(error.localizedDescription)
-        self.simpleAlert(title: "Error", msg: msg)
-        self.activityIndicator.stopAnimating()
-    }
+   func handleError(error: Error, msg: String){
+       debugPrint(error.localizedDescription)
+       self.simpleAlert(title: "Error", msg: msg)
+       self.activityIndicator.stopAnimating()
+   }
    
-
+    
 }
 
-extension AddEditProductsVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+extension AddSellerProductsVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func launchImgPicker(){
         

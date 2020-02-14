@@ -25,8 +25,7 @@ class AdminLoginVC: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         activityIndicator.startAnimating()
-        
-        activityIndicator.startAnimating()
+       
         
         if let email = emailTxt.text, email.isNotEmpty, let password = passTxt.text, password.isNotEmpty {
         

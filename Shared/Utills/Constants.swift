@@ -13,12 +13,13 @@ struct Storyboard {
     static let LoginStoryboard = "LoginStoryboard"
     static let Main = "Main"
     static let SellerLoginStoryboard = "SellerLoginStoryboard"
-    
+    static let RiderLoginStoryboard = "RiderLoginStoryboard"
 }
 
 struct StoryboardID {
     static let LoginVC = "loginVC"
-    static let sellerloginVC = "SellerloginVC" 
+    static let sellerloginVC = "SellerloginVC"
+    static let RiderloginVC = "RiderloginVC"
 }
 
 struct AppImage {
@@ -43,6 +44,8 @@ struct Identifiers {
     static let backToCheckout = "backToCheckout"
     static let goToPaymentMethod = "goToPaymentMethod"
     static let OrderCell = "OrderCell"
+    static let SellerCell = "SellerCell"
+    static let SellerProductCell = "SellerProductCell"
 }
 
 struct Segues {
@@ -53,5 +56,8 @@ struct Segues {
     static let ToFavorites = "ToFavorites"
     static let ToAdminHomeVC = "ToAdminHomeVC"
     static let BackToLoginAdmin = "BackToLoginAdmin"
+    static let toSellerProductsVC = "toSellerProductsVC"
+    static let toAddSellerProductsVC = "toAddSellerProductsVC"
+    static let AddSellerProductOnly = "AddSellerProductOnly"
   
 }

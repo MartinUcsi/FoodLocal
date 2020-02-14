@@ -72,7 +72,7 @@ class SellerRegisterVC: UIViewController {
         if let email = emailTxt.text, email.isNotEmpty, let username = usernameTxt.text, username.isNotEmpty , let password = passwordTxt.text, password.isNotEmpty, let accessCode = accessCodeTxt.text, accessCode.isNotEmpty {
             
             guard let accessPassCode : String = "999abc", accessPassCode == accessCode else{
-                    simpleAlert(title: "Error", msg: "Access Denied.")
+                    simpleAlert(title: "Error", msg: "Invalid Access Code.")
                     activityIndicator.stopAnimating()
                     return
                 }
@@ -150,7 +150,7 @@ class SellerRegisterVC: UIViewController {
         newUserRef.setData(data) { (error) in
             if let error = error{
                 Auth.auth().handleFireAuthError(error: error, vc: self)
-                debugPrint("Unable to upload new user document : \(error.localizedDescription)")
+                debugPrint("Unable to upload new Seller document : \(error.localizedDescription)")
             }else{
                 self.dismiss(animated: true, completion: nil)
             }
