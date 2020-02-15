@@ -25,7 +25,7 @@ class SellerProfileVC: UIViewController {
     //Variable
     
     var db : Firestore!
-   
+    var listener : ListenerRegistration!
    
     
     override func viewDidLoad() {
@@ -36,8 +36,12 @@ class SellerProfileVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-           setUsersListener()
+           setUserListener()
       
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove()
     }
   
     
@@ -45,30 +49,49 @@ class SellerProfileVC: UIViewController {
 //    let user = User.init(data: data)
     
     
+//
+//    func setUsersListener(){
+//
+//
+//
+//             guard let sellerRef = Auth.auth().currentUser?.uid else {return}
+//
+//        let docRef = db.collection("sellers").document(sellerRef)
+//
+//
+//        //Grabing single document from cloud firestore
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                self.sellerIdTxt.text = document.get("id") as! String
+//                self.sellerNameTxt.text = document.get("username") as! String
+//                self.sellerEmailTxt.text = document.get("email") as! String
+//
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+//
+//        }
     
-    func setUsersListener(){
-  
-            
-           
-             guard let sellerRef = Auth.auth().currentUser?.uid else {return}
-           
-        let docRef = db.collection("sellers").document(sellerRef)
+    func setUserListener(){
         
+         guard let sellerRef = Auth.auth().currentUser?.uid else {return}
         
-        //Grabing single document from cloud firestore
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.sellerIdTxt.text = document.get("id") as! String
-                self.sellerNameTxt.text = document.get("username") as! String
-                self.sellerEmailTxt.text = document.get("email") as! String 
-                
-            } else {
-                print("Document does not exist")
-            }
-        }
-        
-        }
-    
+        listener = db.collection("sellers").document(sellerRef).addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                  print("Error fetching document: \(error!)")
+                  return
+                }
+                guard let data = document.data() else {
+                  print("Document data was empty.")
+                  return
+                }
+                print("Current data: \(data)")
+                  self.sellerIdTxt.text = document.get("id") as? String
+                  self.sellerNameTxt.text = document.get("username") as? String
+                  self.sellerEmailTxt.text = document.get("email") as? String
+              }
+    }
 
     
 }

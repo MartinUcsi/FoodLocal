@@ -46,6 +46,7 @@ struct Identifiers {
     static let OrderCell = "OrderCell"
     static let SellerCell = "SellerCell"
     static let SellerProductCell = "SellerProductCell"
+    static let RiderOrderCell = "RiderOrderCell"
 }
 
 struct Segues {
@@ -59,5 +60,6 @@ struct Segues {
     static let toSellerProductsVC = "toSellerProductsVC"
     static let toAddSellerProductsVC = "toAddSellerProductsVC"
     static let AddSellerProductOnly = "AddSellerProductOnly"
+    static let toAcceptOrderVC = "toAcceptOrderVC"
   
 }

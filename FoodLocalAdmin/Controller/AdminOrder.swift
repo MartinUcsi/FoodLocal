@@ -39,7 +39,7 @@ class AdminOrder: UIViewController, OrderCellDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        setOrderListener()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
