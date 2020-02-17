@@ -84,10 +84,10 @@ class RiderRegisterVC: UIViewController {
                                     print ("register success")
                                     
                                      guard let firUser = authResult?.user else { return }
-                                        let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+                                    let artUser = Rider.init(id: firUser.uid, email: email, username: username )
                                         // Upload to firestore
             
-                                        self.createFirestoreUser(user: artUser)
+                                        self.createFirestoreUser(rider: artUser)
                                     
         //                            self.activityIndicator.stopAnimating()
         //                            self.dismiss(animated: true, completion: nil)
@@ -108,15 +108,15 @@ class RiderRegisterVC: UIViewController {
 
     }
     
-    func createFirestoreUser(user: User){
+    func createFirestoreUser(rider: Rider){
         // Step 1: Create document reference
-        let newUserRef = Firestore.firestore().collection("riders").document(user.id)
+        let newRiderRef = Firestore.firestore().collection("riders").document(rider.id)
         
         // Step 2: Create model data
-        let data = User.modelToData(user: user)
+        let data = Rider.modelToData(rider : rider)
         
         // Step3: Upload to Firestore
-        newUserRef.setData(data) { (error) in
+        newRiderRef.setData(data) { (error) in
             if let error = error{
                 Auth.auth().handleFireAuthError(error: error, vc: self)
                 debugPrint("Unable to upload new Rider document : \(error.localizedDescription)")

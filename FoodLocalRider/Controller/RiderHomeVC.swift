@@ -17,6 +17,7 @@ class RiderHomeVC: UIViewController{
     //Outlets
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sellerIncomeTxt: UILabel!
     
     
     
@@ -27,8 +28,9 @@ class RiderHomeVC: UIViewController{
     var db : Firestore!
     var listener : ListenerRegistration!
     var riderListener : ListenerRegistration!
+    var riderRefListener : ListenerRegistration?
     var riderIdRef : String = ""
-    
+    var Income : Double = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -45,11 +47,19 @@ class RiderHomeVC: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         setOrderListener()
+        setRidersListener()
+        setRidersRefListener()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //Show total amount
+               let formatter = NumberFormatter()
+                     formatter.numberStyle = .currency
+                     if let price = formatter.string(from: Income as NSNumber){
+                         sellerIncomeTxt.text = "Income: \(price)"
+                     }
         
         if Auth.auth().currentUser == nil {
                 presentAlert()
@@ -60,7 +70,8 @@ class RiderHomeVC: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
           listener.remove()
-          riderListener?.remove()
+          riderListener.remove()
+          riderRefListener?.remove()
           riderIdRef = ""
           orders.removeAll()
           tableView.reloadData()
@@ -68,7 +79,9 @@ class RiderHomeVC: UIViewController{
     }
     
     func setRidersListener(){
-       riderListener =  db.collection("order").document(selectedOrder.id).addSnapshotListener { documentSnapshot, error in
+        guard let riderRef = Auth.auth().currentUser?.uid else {return}
+        
+       riderListener =  db.collection("riders").document(riderRef).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
               print("Error fetching document: \(error!)")
               return
@@ -78,9 +91,29 @@ class RiderHomeVC: UIViewController{
               return
             }
             print("Current data: \(data)")
-              self.riderIdRef = document.get("riderId") as? String ?? ""
+             
+              self.Income = document.get("riderIncome") as? Double ?? 0.0
+                
           }
       }
+    func setRidersRefListener(){
+        
+          
+        riderRefListener =  db.collection("order").document(selectedOrder.id).addSnapshotListener { documentSnapshot, error in
+              guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+              }
+              guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+              }
+              print("Current data: \(data)")
+                self.riderIdRef = document.get("id") as? String ?? ""
+               
+                  
+            }
+        }
     
 //    func setRidersListener(){
 //        db.collection("order").document(order.id).addSnapshotListener { documentSnapshot, error in

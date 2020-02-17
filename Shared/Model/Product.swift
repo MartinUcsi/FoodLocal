@@ -20,6 +20,7 @@ struct Product {
     var stock : Int
    // var favorite : Bool
     
+    
     init(
         name: String,
         id: String,
