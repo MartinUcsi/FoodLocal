@@ -15,37 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e98-TE-eAC">
-                                <rect key="frame" x="10" y="108" width="396" height="26"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Order List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYG-bw-qzG">
-                                        <rect key="frame" x="0.0" y="0.0" width="195.5" height="26"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income: RM $$.$$$" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h7-u6-MgH">
-                                        <rect key="frame" x="200.5" y="0.0" width="195.5" height="26"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Order List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYG-bw-qzG">
+                                <rect key="frame" x="8" y="96" width="398" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xwP-tH-qDC">
-                                <rect key="frame" x="8" y="142" width="398" height="746"/>
+                                <rect key="frame" x="8" y="130" width="398" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="xwP-tH-qDC" firstAttribute="top" secondItem="e98-TE-eAC" secondAttribute="bottom" constant="8" id="2BN-8U-E8b"/>
-                            <constraint firstItem="xwP-tH-qDC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="3N1-Z9-msB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xwP-tH-qDC" secondAttribute="trailing" constant="8" id="Jwk-WI-LTV"/>
-                            <constraint firstAttribute="bottom" secondItem="xwP-tH-qDC" secondAttribute="bottom" constant="8" id="RfR-9n-QqP"/>
-                            <constraint firstItem="e98-TE-eAC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="arR-ON-gqW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e98-TE-eAC" secondAttribute="trailing" constant="8" id="cBQ-xB-6ix"/>
-                            <constraint firstItem="e98-TE-eAC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="y3U-Ng-Tcv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wYG-bw-qzG" secondAttribute="trailing" constant="8" id="0go-Nf-1Ga"/>
+                            <constraint firstAttribute="bottom" secondItem="xwP-tH-qDC" secondAttribute="bottom" constant="8" id="2Yn-sP-AQD"/>
+                            <constraint firstItem="xwP-tH-qDC" firstAttribute="top" secondItem="wYG-bw-qzG" secondAttribute="bottom" constant="8" id="N4u-93-zRF"/>
+                            <constraint firstItem="wYG-bw-qzG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="UOR-WE-qvR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xwP-tH-qDC" secondAttribute="trailing" constant="8" id="Up0-Z6-RFp"/>
+                            <constraint firstItem="wYG-bw-qzG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="j38-lq-byq"/>
+                            <constraint firstItem="xwP-tH-qDC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="wpd-bl-dGX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,15 +45,17 @@
                                 <action selector="logoutClicked:" destination="BYZ-38-t0r" id="g3H-zZ-dQP"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="completed" id="c3z-ge-bOE">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="wKM-dt-VAz" kind="show" id="Lsv-S5-wHx"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="completed" id="c3z-ge-bOE">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="wKM-dt-VAz" kind="show" id="Lsv-S5-wHx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="wallet" id="wRw-MC-H27"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="sellerIncomeTxt" destination="0h7-u6-MgH" id="wFX-QG-dWh"/>
                         <outlet property="tableView" destination="xwP-tH-qDC" id="Jhi-np-v9r"/>
                         <segue destination="n74-Ra-8IB" kind="show" identifier="toAcceptOrderVC" id="4Zr-xl-OuL"/>
                     </connections>
@@ -429,5 +420,6 @@
     <resources>
         <image name="completed" width="44" height="44"/>
         <image name="navigation" width="40" height="40"/>
+        <image name="wallet" width="44" height="44"/>
     </resources>
 </document>

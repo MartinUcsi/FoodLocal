@@ -93,14 +93,14 @@ class RiderAcceptOrderVC: UIViewController {
 
 //    func detectAuthorizeRider(){
 //
-//         guard let riderRef = Auth.auth().currentUser?.uid else {return}
+//        guard let riderRef = Auth.auth().currentUser?.uid else {return}
 //
 //       // print("The riderIdRef is \(riderIdRef)")
 //        if riderIdRef != riderIdRef {
 //            presentAlert()
 //        }
 //    }
-//
+
     func presentCancelAlert(){
         let alertController = UIAlertController(title: "Cancel Order?", message: "Are you sure you want to cancel?", preferredStyle: .alert)
         
@@ -186,6 +186,9 @@ class RiderAcceptOrderVC: UIViewController {
 
     
     func setRidersListener(){
+         guard let riderRef = Auth.auth().currentUser?.uid else {return}
+         
+    
        listener = db.collection("order").document(order.id).addSnapshotListener { documentSnapshot, error in
           guard let document = documentSnapshot else {
             print("Error fetching document: \(error!)")
@@ -198,6 +201,10 @@ class RiderAcceptOrderVC: UIViewController {
           print("Current data: \(data)")
         self.orderId.text = "OrderID# \(document.get("id") as? String ?? "OrderID#----")"
             self.riderIdRef = document.get("riderId") as? String ?? ""
+          
+            if self.riderIdRef != riderRef {
+                    self.presentAlert()
+                }
         
         }
     }
