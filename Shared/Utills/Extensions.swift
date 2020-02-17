@@ -15,6 +15,8 @@ extension String{
     }
 }
 
+
+
 extension UIViewController {
     
     func simpleAlert(title: String, msg: String) {

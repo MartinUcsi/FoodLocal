@@ -44,12 +44,12 @@ class RiderHomeVC: UIViewController{
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        setOrderListener()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setOrderListener()
+        
         
         if Auth.auth().currentUser == nil {
                 presentAlert()
@@ -60,7 +60,7 @@ class RiderHomeVC: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
           listener.remove()
-          riderListener.remove()
+          riderListener?.remove()
           riderIdRef = ""
           orders.removeAll()
           tableView.reloadData()
@@ -216,6 +216,9 @@ class RiderHomeVC: UIViewController{
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             self.navigationController?.popViewController(animated: true)
         }
+        //confirm.setValue(AppColors.blue, forKey: "titleTextColor")
+        cancel.setValue(AppColors.red, forKey: "titleTextColor")
+        
         alertController.addAction(confirm)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)

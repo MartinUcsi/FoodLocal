@@ -16,60 +16,71 @@
                 <rect key="frame" x="0.0" y="0.0" width="521" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8la-S7-BVr" customClass="RoundedGrayShaodowView" customModule="FoodLocalRider" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8la-S7-BVr" customClass="RoundedGrayShadowView" customModule="FoodLocalRider" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="505" height="186"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-Xj-C7q">
-                                <rect key="frame" x="25" y="20" width="104.5" height="21"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2S9-Wh-1jo">
-                                <rect key="frame" x="25" y="49" width="118.5" height="109.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2S9-Wh-1jo">
+                                <rect key="frame" x="25" y="46" width="242" height="126.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CustomerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-Qr-h6f">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="21"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVz-Oj-Z8R">
-                                        <rect key="frame" x="0.0" y="29" width="118.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="26" width="242" height="21"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PaymentMethod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsv-Jd-ZMF">
-                                        <rect key="frame" x="0.0" y="58" width="118.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="52" width="242" height="21"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-Ph-zkb">
-                                        <rect key="frame" x="0.0" y="87" width="118.5" height="22.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-Ph-zkb">
+                                        <rect key="frame" x="0.0" y="78" width="242" height="22.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLm-cL-1Jz">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="22.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price : RM 99.99" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-16-q0Z">
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="47R-Fb-zvD">
+                                        <rect key="frame" x="0.0" y="105.5" width="242" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJV-qm-xyw">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="21"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-16-q0Z">
-                                                <rect key="frame" x="71" y="0.0" width="47.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/02/2020, 16:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0r0-cF-bIy">
+                                                <rect key="frame" x="105" y="0.0" width="137" height="21"/>
+                                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="15"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-Xj-C7q">
+                                <rect key="frame" x="25" y="20" width="104.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GdV-Xj-C7q" firstAttribute="leading" secondItem="8la-S7-BVr" secondAttribute="leading" constant="25" id="2hd-sO-uhc"/>
-                            <constraint firstItem="2S9-Wh-1jo" firstAttribute="top" secondItem="GdV-Xj-C7q" secondAttribute="bottom" constant="8" id="2wY-J2-VuY"/>
+                            <constraint firstItem="2S9-Wh-1jo" firstAttribute="top" secondItem="GdV-Xj-C7q" secondAttribute="bottom" constant="5" id="2wY-J2-VuY"/>
                             <constraint firstItem="GdV-Xj-C7q" firstAttribute="top" secondItem="8la-S7-BVr" secondAttribute="top" constant="20" id="hRV-08-hbc"/>
                             <constraint firstItem="2S9-Wh-1jo" firstAttribute="leading" secondItem="8la-S7-BVr" secondAttribute="leading" constant="25" id="jWk-di-EZ8"/>
                         </constraints>
@@ -88,6 +99,7 @@
                 <outlet property="amount" destination="A5K-16-q0Z" id="Tm2-NE-Rzu"/>
                 <outlet property="customerName" destination="vSe-Qr-h6f" id="gxa-NV-GrI"/>
                 <outlet property="customerPhone" destination="sVz-Oj-Z8R" id="f2T-Ly-IBD"/>
+                <outlet property="dateTxt" destination="0r0-cF-bIy" id="VK2-DJ-9Md"/>
                 <outlet property="orderNumber" destination="GdV-Xj-C7q" id="7pa-68-ehL"/>
                 <outlet property="paymentMethodLbl" destination="rsv-Jd-ZMF" id="tGa-rq-bqb"/>
             </connections>
