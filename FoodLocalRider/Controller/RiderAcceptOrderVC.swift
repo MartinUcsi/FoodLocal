@@ -41,9 +41,6 @@ class RiderAcceptOrderVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         
-       
-        
-        
         addressArray.append("\(order.lineOne) \n")
         addressArray.append("\(order.lineTwo)")
         
@@ -51,13 +48,9 @@ class RiderAcceptOrderVC: UIViewController {
             itemArray.append("\(i) \n")
            
         }
-        
     }
-    
- 
     override func viewDidAppear(_ animated: Bool) {
          
-        
        setRidersListener()
         
         //show item order
@@ -98,17 +91,7 @@ class RiderAcceptOrderVC: UIViewController {
         listener.remove()
         addressArray.removeAll()
     }
-
-//    func detectAuthorizeRider(){
-//
-//        guard let riderRef = Auth.auth().currentUser?.uid else {return}
-//
-//       // print("The riderIdRef is \(riderIdRef)")
-//        if riderIdRef != riderIdRef {
-//            presentAlert()
-//        }
-//    }
-
+    
     func presentCancelAlert(){
         let alertController = UIAlertController(title: "Cancel Order?", message: "Are you sure you want to cancel?", preferredStyle: .alert)
         
@@ -126,6 +109,24 @@ class RiderAcceptOrderVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    
+    func presentCompletedAlert(){
+        let alertController = UIAlertController(title: "Order Complete?", message: "Are you Complete the order?", preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+            self.orderCompleted()
+            self.addRiderIncome()
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        let no = UIAlertAction(title: "Stay", style: .cancel) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(yes)
+        alertController.addAction(no)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func presentAlert(){
         let alertController = UIAlertController(title: "Sorry", message: "The Order already taken by other rider, Please try to take another order.", preferredStyle: .alert)
         
@@ -136,24 +137,25 @@ class RiderAcceptOrderVC: UIViewController {
         alertController.addAction(ok)
         present(alertController, animated: true, completion: nil)
     }
-//    func setRidersListener(){
-//
-//
-//        guard let riderRef = Auth.auth().currentUser?.uid else {return}
-//
-//        let docRef = db.collection("order").document(order.id)
-//
-//        //Grabing single document from cloud firestore
-//               docRef.getDocument { (document, error) in
-//                   if let document = document, document.exists {
-//
-//                    self.orderId.text = document.get("id") as? String
-//                    self.riderId.text = document.get("rioderId") as? String
-//                   } else {
-//                       print("Document does not exist")
-//                }
-//        }
-//    }
+
+        func addRiderIncome() {
+    
+             guard let riderRef = Auth.auth().currentUser?.uid else {return}
+    
+            let incomeRef = db.collection("riders").document(riderRef)
+    
+                incomeRef.updateData([
+                    "riderIncome" :  FieldValue.increment(7.5)
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+           
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     
         func orderCompleted() {
     
@@ -217,19 +219,20 @@ class RiderAcceptOrderVC: UIViewController {
         }
     }
     
+    //MARK: Complete Clicked
     @IBAction func completeClicked(_ sender: UIButton) {
         
         guard let riderRef = Auth.auth().currentUser?.uid else {return}
         
         if riderRef == riderIdRef{
-             orderCompleted()
+             presentCompletedAlert()
         }else{
             self.navigationController?.popToRootViewController(animated: true)
         }
        
         
     }
-    
+    //MARK: Cancel Clicked
     @IBAction func cancelClicked(_ sender: RoundedButton) {
         presentCancelAlert()
     }
