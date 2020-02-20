@@ -13,6 +13,7 @@ class AddEditCategoryVC: UIViewController {
 
     // Outlets
     @IBOutlet weak var nameTxt: UITextField!
+    @IBOutlet weak var sellerIdTxt: UITextField!
     @IBOutlet weak var categoryImg: RoundedImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var addBtn : UIButton!
@@ -55,7 +56,7 @@ class AddEditCategoryVC: UIViewController {
     
     func uploadImageThenDocument(){
         
-        guard let image = categoryImg.image, let categoryName = nameTxt.text, categoryName.isNotEmpty else{
+        guard let image = categoryImg.image, let categoryName = nameTxt.text, categoryName.isNotEmpty, let sellerID = sellerIdTxt.text, sellerID.isNotEmpty else{
                 simpleAlert(title: "Error", msg: "Must add category and name")
                 activityIndicator.stopAnimating()
                 return
@@ -92,22 +93,22 @@ class AddEditCategoryVC: UIViewController {
                        print(url)
                        
                        //Step 6: Upload the new Category document to the Firestore categories collection.
-                       self.uploadDocument(url: url.absoluteString)
+                    self.uploadDocument(url: url.absoluteString, sellerid: sellerID)
                    }
                }
             }
         }
     }
     
-    func uploadDocument(url: String){
-        guard let sellerRef = Auth.auth().currentUser?.uid else { return }
+    func uploadDocument(url: String, sellerid : String){
+        //guard let sellerRef = Auth.auth().currentUser?.uid else { return }
         
         var docRef: DocumentReference!
         var category = Category.init(name: nameTxt.text!,
                                      id: "",
                                      imgUrl: url,
                                      timeStamp: Timestamp(),
-                                     sellerId : sellerRef)
+                                     sellerId : sellerid)
         
         if let categoryToEdit = categoryToEdit{
             //We are Editing, it will update the category

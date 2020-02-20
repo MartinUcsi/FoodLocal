@@ -39,7 +39,7 @@ class AdminOrder: UIViewController, OrderCellDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        setOrderListener()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,7 +51,8 @@ class AdminOrder: UIViewController, OrderCellDelegate {
     
     func setOrderListener(){
          
-        listener = db.collection("order").whereField("isCompleted", isEqualTo: false).order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
+        listener = db.collection("order").whereField("isCompleted", isEqualTo: false)
+        .whereField("riderId", isEqualTo: "").order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
