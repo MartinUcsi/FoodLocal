@@ -22,7 +22,7 @@ class RiderAcceptOrderVC: UIViewController {
     @IBOutlet weak var OrderItemArrayTxt: UITextView!
     @IBOutlet weak var paymentMethodTxt: UILabel!
     @IBOutlet weak var amountTxt: UILabel!
-    
+
     
     //Variable
     var db : Firestore!
@@ -37,9 +37,12 @@ class RiderAcceptOrderVC: UIViewController {
         db = Firestore.firestore()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-        setRidersListener()
+        
+       
+        
         
         addressArray.append("\(order.lineOne) \n")
         addressArray.append("\(order.lineTwo)")
@@ -50,8 +53,13 @@ class RiderAcceptOrderVC: UIViewController {
         }
         
     }
+    
+ 
     override func viewDidAppear(_ animated: Bool) {
          
+        
+       setRidersListener()
+        
         //show item order
         OrderItemArrayTxt.text = itemArray
         
@@ -203,14 +211,22 @@ class RiderAcceptOrderVC: UIViewController {
             self.riderIdRef = document.get("riderId") as? String ?? ""
           
             if self.riderIdRef != riderRef {
-                    self.presentAlert()
-                }
+                self.presentAlert()
+            }
         
         }
     }
     
     @IBAction func completeClicked(_ sender: UIButton) {
-        orderCompleted()
+        
+        guard let riderRef = Auth.auth().currentUser?.uid else {return}
+        
+        if riderRef == riderIdRef{
+             orderCompleted()
+        }else{
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+       
         
     }
     
