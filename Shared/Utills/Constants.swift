@@ -27,7 +27,9 @@ struct AppImage {
     static let RedCheck = "red_check"
     static let FilledStar = "filled_star"
     static let EmptyStar = "empty_star"
-    
+    static let touchngoDetail = "touchngoDetail"
+    static let maybankDetail = "maybankDetail"
+    static let grabpayDetail = "grabpayDetail"
     
 }
 

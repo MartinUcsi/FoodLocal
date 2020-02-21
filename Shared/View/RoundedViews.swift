@@ -43,7 +43,7 @@ class RoundedGrayShadowView : UIView{
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.shadowOpacity = 1.0
-        layer.cornerRadius = 5
+        layer.cornerRadius = 0
         
     }
 }
