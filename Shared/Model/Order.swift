@@ -24,6 +24,7 @@ struct Order {
     var riderId : String
     
     
+    
     init(
         id : String,
         customerId : String,

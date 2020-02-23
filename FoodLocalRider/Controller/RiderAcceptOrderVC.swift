@@ -23,6 +23,11 @@ class RiderAcceptOrderVC: UIViewController {
     @IBOutlet weak var paymentMethodTxt: UILabel!
     @IBOutlet weak var amountTxt: UILabel!
 
+    //Bar button Outlets
+    @IBOutlet weak var reachBtn: UIBarButtonItem!
+    @IBOutlet weak var queueBtn: UIBarButtonItem!
+    @IBOutlet weak var otwBtn: UIBarButtonItem!
+    
     
     //Variable
     var db : Firestore!
@@ -41,6 +46,8 @@ class RiderAcceptOrderVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         
+        queueBtn.isEnabled = false
+        otwBtn.isEnabled = false
         addressArray.append("\(order.lineOne) \n")
         addressArray.append("\(order.lineTwo)")
         
@@ -236,5 +243,21 @@ class RiderAcceptOrderVC: UIViewController {
     @IBAction func cancelClicked(_ sender: RoundedButton) {
         presentCancelAlert()
     }
+    
+    @IBAction func reachClicked(_ sender: UIBarButtonItem) {
+        reachBtn.isEnabled = false
+        queueBtn.isEnabled = true
+    }
+    
+    @IBAction func queueClicked(_ sender: UIBarButtonItem) {
+        queueBtn.isEnabled = false
+        otwBtn.isEnabled = true
+    }
+    
+    @IBAction func otwClicked(_ sender: UIBarButtonItem) {
+        otwBtn.isEnabled = false
+        
+    }
+    
     
 }

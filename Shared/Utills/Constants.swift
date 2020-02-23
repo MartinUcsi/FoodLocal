@@ -30,7 +30,8 @@ struct AppImage {
     static let touchngoDetail = "touchngoDetail"
     static let maybankDetail = "maybankDetail"
     static let grabpayDetail = "grabpayDetail"
-    
+    static let boostDetail = "boostDetail"
+    static let alipayDetail = "alipayDetail"
 }
 
 struct AppColors {
@@ -49,6 +50,7 @@ struct Identifiers {
     static let SellerCell = "SellerCell"
     static let SellerProductCell = "SellerProductCell"
     static let RiderOrderCell = "RiderOrderCell"
+    static let UserOrderCell = "UserOrderCell"
 }
 
 struct Segues {

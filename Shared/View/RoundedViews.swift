@@ -47,6 +47,18 @@ class RoundedGrayShadowView : UIView{
         
     }
 }
+
+class GrayTabBarView : UITabBar{
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        layer.shadowOpacity = 1.0
+        layer.cornerRadius = 0
+        
+    }
+}
+
 class RoundedGrayShadowStackView : UIStackView{
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,6 +70,17 @@ class RoundedGrayShadowStackView : UIStackView{
     }
 }
 
+
+
+class RoundedGrayImageView : UIImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 5
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        layer.shadowOpacity = 1.0
+    }
+}
 
 class RoundedImageView : UIImageView {
     override func awakeFromNib() {

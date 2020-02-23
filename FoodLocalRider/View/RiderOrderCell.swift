@@ -70,7 +70,7 @@ class RiderOrderCell: UITableViewCell {
             //dateTxt.text = "\(order.timeStamp)"
         
                 
-        let OrderTime = order.timeStamp
+            let OrderTime = order.timeStamp
           
            let aDate = OrderTime.dateValue()
            let formatter2 = DateFormatter()

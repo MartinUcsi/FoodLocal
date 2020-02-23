@@ -31,6 +31,10 @@ class PaymentInstructionVC: UIViewController {
             paymentImg.image = UIImage(named: AppImage.maybankDetail)
         }else if paymentImageNo == 3 {
             paymentImg.image = UIImage(named: AppImage.grabpayDetail)
+        }else if paymentImageNo == 4{
+            paymentImg.image = UIImage(named: AppImage.boostDetail)
+        }else if paymentImageNo == 5{
+            paymentImg.image = UIImage(named: AppImage.alipayDetail)
         }else{
             paymentImg.image = UIImage(named: AppImage.GreenCheck)
         }

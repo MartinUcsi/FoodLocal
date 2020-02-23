@@ -445,7 +445,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q4L-9z-eMn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HLy-LE-1nv"/>
+                    <navigationItem key="navigationItem" id="HLy-LE-1nv">
+                        <rightBarButtonItems>
+                            <barButtonItem title="On the way" id="qb6-bh-3BG">
+                                <connections>
+                                    <action selector="otwClicked:" destination="n74-Ra-8IB" id="wH8-64-sHZ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Queue" id="X6c-Qp-Sw2">
+                                <connections>
+                                    <action selector="queueClicked:" destination="n74-Ra-8IB" id="KBj-5R-bIN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Reach" id="P4a-X3-ZT1">
+                                <connections>
+                                    <action selector="reachClicked:" destination="n74-Ra-8IB" id="Eit-jQ-iDi"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="OrderItemArrayTxt" destination="EfL-Y9-HWu" id="vJV-UU-Ref"/>
                         <outlet property="amountTxt" destination="SVh-za-46F" id="ZXF-Bn-Pa8"/>
@@ -454,7 +472,10 @@
                         <outlet property="customerPhoneTxt" destination="TMP-Uo-5LV" id="FnA-mv-KTy"/>
                         <outlet property="orderId" destination="eZ7-UB-oX1" id="2yL-xP-cds"/>
                         <outlet property="orderTimeTxt" destination="Tmr-zK-JJn" id="PqF-hd-TIa"/>
+                        <outlet property="otwBtn" destination="qb6-bh-3BG" id="K4x-Wh-EqF"/>
                         <outlet property="paymentMethodTxt" destination="l55-wL-htW" id="mmc-Mp-vn5"/>
+                        <outlet property="queueBtn" destination="X6c-Qp-Sw2" id="HXx-5s-dFw"/>
+                        <outlet property="reachBtn" destination="P4a-X3-ZT1" id="cCE-hR-dsZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZq-Ah-RAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
