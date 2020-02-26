@@ -20,49 +20,49 @@
                         <rect key="frame" x="8" y="8" width="428" height="187"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rider" translatesAutoresizingMaskIntoConstraints="NO" id="HHl-H0-BqW" customClass="RoundedGrayImageView" customModule="FoodLocal" customModuleProvider="target">
-                                <rect key="frame" x="8" y="34" width="100" height="100"/>
+                                <rect key="frame" x="8" y="24" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4dV-3h-xeX"/>
                                     <constraint firstAttribute="width" secondItem="HHl-H0-BqW" secondAttribute="height" multiplier="1:1" id="OYs-gz-P0h"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxv-Lx-XxW">
-                                <rect key="frame" x="123" y="25" width="297" height="102"/>
+                                <rect key="frame" x="123" y="25" width="297" height="96.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderID#jgjgjfgf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-Sx-ZrO">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderID#jgjgjfgf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-Sx-ZrO">
+                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-1m-2Ad">
-                                        <rect key="frame" x="0.0" y="27.5" width="77" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Time:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-1m-2Ad">
+                                        <rect key="frame" x="0.0" y="26" width="71.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimate Time: 35 min left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnf-s0-7gQ">
-                                        <rect key="frame" x="0.0" y="55" width="162.5" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimate Time: 35 min left" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnf-s0-7gQ">
+                                        <rect key="frame" x="0.0" y="52" width="151" height="17"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status : Order Received" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOv-bA-lgZ">
-                                        <rect key="frame" x="0.0" y="82.5" width="190" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status : Order Received" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOv-bA-lgZ">
+                                        <rect key="frame" x="0.0" y="78" width="151" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                         <color key="textColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh5-61-TfD" customClass="RoundedButton" customModule="FoodLocal" customModuleProvider="target">
-                                <rect key="frame" x="345" y="134" width="75" height="40"/>
+                                <rect key="frame" x="20.5" y="137" width="75" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="55Z-S1-lMM"/>
-                                    <constraint firstAttribute="width" constant="75" id="QWm-Ob-AOT"/>
+                                    <constraint firstAttribute="height" constant="35" id="YNw-1t-gI2"/>
+                                    <constraint firstAttribute="width" constant="75" id="tAy-oG-O9c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <state key="normal" title="Call Rider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -70,34 +70,17 @@
                                     <action selector="callRiderClicked:" destination="hlJ-7V-M2n" eventType="touchUpInside" id="1P4-hW-UEB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-5k-6Oq" customClass="RoundedButton" customModule="FoodLocal" customModuleProvider="target">
-                                <rect key="frame" x="187" y="134" width="150" height="40"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="LIh-LH-R6j"/>
-                                    <constraint firstAttribute="height" constant="40" id="RBk-O0-BnO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <state key="normal" title="Contact FoodLocal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="contactClicked:" destination="hlJ-7V-M2n" eventType="touchUpInside" id="6NP-2M-vAX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jh5-61-TfD" firstAttribute="leading" secondItem="sFb-5k-6Oq" secondAttribute="trailing" constant="8" id="7gQ-YX-o3p"/>
-                            <constraint firstAttribute="bottom" secondItem="sFb-5k-6Oq" secondAttribute="bottom" constant="13" id="J40-Fj-DUO"/>
                             <constraint firstAttribute="trailing" secondItem="jxv-Lx-XxW" secondAttribute="trailing" constant="8" id="USU-aV-011"/>
-                            <constraint firstAttribute="bottom" secondItem="jh5-61-TfD" secondAttribute="bottom" constant="13" id="UTu-3x-YoR"/>
-                            <constraint firstAttribute="bottom" secondItem="HHl-H0-BqW" secondAttribute="bottom" constant="53" id="cSy-3I-4hH"/>
+                            <constraint firstItem="jh5-61-TfD" firstAttribute="leading" secondItem="SvM-RZ-uhA" secondAttribute="leading" constant="20.5" id="bYz-Qc-J9I"/>
+                            <constraint firstAttribute="bottom" secondItem="HHl-H0-BqW" secondAttribute="bottom" constant="63" id="cSy-3I-4hH"/>
                             <constraint firstItem="HHl-H0-BqW" firstAttribute="leading" secondItem="SvM-RZ-uhA" secondAttribute="leading" constant="8" id="cpe-xJ-zny"/>
-                            <constraint firstAttribute="trailing" secondItem="jh5-61-TfD" secondAttribute="trailing" constant="8" id="h6G-nE-aFo"/>
                             <constraint firstItem="jxv-Lx-XxW" firstAttribute="top" secondItem="SvM-RZ-uhA" secondAttribute="top" constant="25" id="heM-tk-Jhl"/>
+                            <constraint firstAttribute="bottom" secondItem="jh5-61-TfD" secondAttribute="bottom" constant="15" id="pny-dH-5jZ"/>
                             <constraint firstItem="jxv-Lx-XxW" firstAttribute="leading" secondItem="HHl-H0-BqW" secondAttribute="trailing" constant="15" id="tOc-FY-wWB"/>
-                            <constraint firstItem="HHl-H0-BqW" firstAttribute="top" secondItem="SvM-RZ-uhA" secondAttribute="top" constant="34" id="zo0-V0-jgF"/>
+                            <constraint firstItem="HHl-H0-BqW" firstAttribute="top" secondItem="SvM-RZ-uhA" secondAttribute="top" constant="24" id="zo0-V0-jgF"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -111,10 +94,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="UBW-Pe-MR2"/>
             <connections>
+                <outlet property="callRiderBtn" destination="jh5-61-TfD" id="gMc-rM-PeJ"/>
                 <outlet property="estimateTimeTxt" destination="Dnf-s0-7gQ" id="cT4-Fj-ZYB"/>
                 <outlet property="orderStatus" destination="uOv-bA-lgZ" id="vx3-6M-Iae"/>
                 <outlet property="orderTimeTxt" destination="uQd-1m-2Ad" id="tGE-ti-pTv"/>
                 <outlet property="orderidTxt" destination="Bgr-Sx-ZrO" id="tdz-0n-3c6"/>
+                <outlet property="statusPicImg" destination="HHl-H0-BqW" id="Adj-VP-VI8"/>
             </connections>
             <point key="canvasLocation" x="-30.434782608695656" y="68.638392857142847"/>
         </tableViewCell>

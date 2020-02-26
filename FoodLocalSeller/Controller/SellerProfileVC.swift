@@ -21,6 +21,7 @@ class SellerProfileVC: UIViewController {
     @IBOutlet weak var sellerNameTxt: UILabel!
     @IBOutlet weak var sellerEmailTxt: UILabel!
     
+    @IBOutlet weak var qrImg: UIImageView!
     
     //Variable
     
@@ -34,7 +35,12 @@ class SellerProfileVC: UIViewController {
        
       
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        //Generate user uid QR code
+               guard let sellerRef = Auth.auth().currentUser?.uid else {return}
+                let imageQR = generateQRCode(from: sellerRef )
+               qrImg.image = imageQR
+    }
     override func viewDidAppear(_ animated: Bool) {
            setUserListener()
       
@@ -43,7 +49,22 @@ class SellerProfileVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()
     }
-  
+
+  func generateQRCode(from string: String) -> UIImage? {
+      let data = string.data(using: String.Encoding.ascii)
+
+      if let filter = CIFilter(name: "CIQRCodeGenerator") {
+          filter.setValue(data, forKey: "inputMessage")
+          let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+          if let output = filter.outputImage?.transformed(by: transform) {
+              return UIImage(ciImage: output)
+          }
+      }
+
+      return nil
+  }
+
     
 //    let data = document.data()
 //    let user = User.init(data: data)

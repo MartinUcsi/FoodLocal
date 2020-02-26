@@ -28,6 +28,7 @@ class RiderAcceptOrderVC: UIViewController {
     @IBOutlet weak var queueBtn: UIBarButtonItem!
     @IBOutlet weak var otwBtn: UIBarButtonItem!
     
+    @IBOutlet weak var completeBtn: GrayShadowView!
     
     //Variable
     var db : Firestore!
@@ -46,6 +47,7 @@ class RiderAcceptOrderVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         
+        completeBtn.isHidden = true
         queueBtn.isEnabled = false
         otwBtn.isEnabled = false
         addressArray.append("\(order.lineOne) \n")
@@ -115,7 +117,55 @@ class RiderAcceptOrderVC: UIViewController {
         alertController.addAction(stay)
         present(alertController, animated: true, completion: nil)
     }
-    
+    func presentReachAlert(){
+        let alertController = UIAlertController(title: "Have you reach?", message: "Are you sure you arrive the pasar malam?", preferredStyle: .alert)
+               
+               let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+                   self.reachConfirm()
+                   self.dismiss(animated: true, completion: nil)
+                  
+               }
+               let no = UIAlertAction(title: "No", style: .cancel) { (action) in
+                   self.dismiss(animated: true, completion: nil)
+               }
+               
+               alertController.addAction(yes)
+               alertController.addAction(no)
+               present(alertController, animated: true, completion: nil)
+    }
+    func presentQueueAlert(){
+        let alertController = UIAlertController(title: "Queue now?", message: "Are you sure you are queueing now?", preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+            self.queueConfirm()
+            self.dismiss(animated: true, completion: nil)
+           
+        }
+        let no = UIAlertAction(title: "No", style: .cancel) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(yes)
+        alertController.addAction(no)
+        present(alertController, animated: true, completion: nil)
+    }
+    func presentOtwAlert(){
+        let alertController = UIAlertController(title: "Otw now?", message: "Are you sure you been collect all the item of the order?", preferredStyle: .alert)
+               
+               let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+                   self.otwConfirm()
+                   self.dismiss(animated: true, completion: nil)
+                   self.completeBtn.isHidden = false
+                  
+               }
+               let no = UIAlertAction(title: "No", style: .cancel) { (action) in
+                   self.dismiss(animated: true, completion: nil)
+               }
+               
+               alertController.addAction(yes)
+               alertController.addAction(no)
+               present(alertController, animated: true, completion: nil)
+    }
     
     func presentCompletedAlert(){
         let alertController = UIAlertController(title: "Order Complete?", message: "Are you Complete the order?", preferredStyle: .alert)
@@ -123,6 +173,7 @@ class RiderAcceptOrderVC: UIViewController {
         let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
             self.orderCompleted()
             self.addRiderIncome()
+            self.completedConfirm()
             self.navigationController?.popToRootViewController(animated: true)
         }
         let no = UIAlertAction(title: "Stay", style: .cancel) { (action) in
@@ -182,6 +233,75 @@ class RiderAcceptOrderVC: UIViewController {
            
             self.navigationController?.popToRootViewController(animated: true)
         }
+    func reachConfirm(){
+        let completeRef = db.collection("order").document(order.id)
+           
+               completeRef.updateData([
+                   "statusPic": 3,
+                   "status" : "Our Rider has reach the Pasar malam",
+                   "estimateTime" : 25
+               ]) { err in
+                   if let err = err {
+                       print("Error updating document: \(err)")
+                   } else {
+                       print("Document successfully updated")
+                   }
+               }
+          
+          // self.navigationController?.popToRootViewController(animated: true)
+            reachBtn.isEnabled = false
+            queueBtn.isEnabled = true
+    }
+    func queueConfirm(){
+        let completeRef = db.collection("order").document(order.id)
+                
+                completeRef.updateData([
+                    "statusPic": 4,
+                    "status" : "Our Rider is queueing for your order",
+                    "estimateTime" : 20
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+                queueBtn.isEnabled = false
+                otwBtn.isEnabled = true
+    }
+    func otwConfirm(){
+        let completeRef = db.collection("order").document(order.id)
+                    
+                completeRef.updateData([
+                    "statusPic": 5,
+                    "status" : "Your Order has been picked up for delivery",
+                    "estimateTime" : 10
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+                 otwBtn.isEnabled = false
+    }
+        
+    func completedConfirm(){
+        let completeRef = db.collection("order").document(order.id)
+                        
+                    completeRef.updateData([
+                        "statusPic": 6,
+                        "status" : "Order Completed",
+                        "estimateTime" : 0
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+                     
+        }
     
     func riderCancelOrder(){
 //        guard let riderRef = Auth.auth().currentUser?.uid else {return}
@@ -189,7 +309,10 @@ class RiderAcceptOrderVC: UIViewController {
                   let completeRef = db.collection("order").document(order.id)
           
                       completeRef.updateData([
-                          "riderId": ""
+                          "riderId": "",
+                          "statusPic" : 1,
+                          "status" : "Order cancel by rider, waiting for another rider to accept order",
+                          "estimateTime" : 35
                       ]) { err in
                           if let err = err {
                               print("Error updating document: \(err)")
@@ -233,6 +356,7 @@ class RiderAcceptOrderVC: UIViewController {
         
         if riderRef == riderIdRef{
              presentCompletedAlert()
+             
         }else{
             self.navigationController?.popToRootViewController(animated: true)
         }
@@ -245,17 +369,20 @@ class RiderAcceptOrderVC: UIViewController {
     }
     
     @IBAction func reachClicked(_ sender: UIBarButtonItem) {
-        reachBtn.isEnabled = false
-        queueBtn.isEnabled = true
+//        reachBtn.isEnabled = false
+//        queueBtn.isEnabled = true
+        presentReachAlert()
     }
     
     @IBAction func queueClicked(_ sender: UIBarButtonItem) {
-        queueBtn.isEnabled = false
-        otwBtn.isEnabled = true
+//        queueBtn.isEnabled = false
+//        otwBtn.isEnabled = true
+        presentQueueAlert()
     }
     
     @IBAction func otwClicked(_ sender: UIBarButtonItem) {
-        otwBtn.isEnabled = false
+//        otwBtn.isEnabled = false
+        presentOtwAlert()
         
     }
     

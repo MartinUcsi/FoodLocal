@@ -32,6 +32,12 @@ struct AppImage {
     static let grabpayDetail = "grabpayDetail"
     static let boostDetail = "boostDetail"
     static let alipayDetail = "alipayDetail"
+    static let orderReceived = "orderReceived"
+    static let orderAccept = "orderAccept"
+    static let riderQueue = "riderQueue"
+    static let riderOtw = "riderOtw"
+    static let orderCompleted = "orderCompleted"
+    static let riderReach = "riderReach"
 }
 
 struct AppColors {
@@ -65,5 +71,6 @@ struct Segues {
     static let toAddSellerProductsVC = "toAddSellerProductsVC"
     static let AddSellerProductOnly = "AddSellerProductOnly"
     static let toAcceptOrderVC = "toAcceptOrderVC"
+    static let ToOrderDetail = "ToOrderDetail"
   
 }

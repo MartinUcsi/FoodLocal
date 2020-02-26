@@ -22,8 +22,9 @@ struct Order {
     var timeStamp : Timestamp
     var isCompleted : Bool
     var riderId : String
-    
-    
+    var status : String
+    var estimateTime : Int
+    var statusPic : Int
     
     init(
         id : String,
@@ -37,7 +38,10 @@ struct Order {
         item : [String] = [],
         timeStamp : Timestamp = Timestamp(),
         isCompleted : Bool = false,
-        riderId : String = "") {
+        riderId : String = "",
+        status : String = "Order Received",
+        estimateTime : Int = 35,
+        statusPic : Int = 1) {
         
         self.id = id
         self.customerId = customerId
@@ -51,6 +55,9 @@ struct Order {
         self.timeStamp = timeStamp
         self.isCompleted = isCompleted
         self.riderId = riderId
+        self.status = status
+        self.estimateTime = estimateTime
+        self.statusPic = statusPic
     }
     
     init(data: [String : Any]) {
@@ -66,6 +73,10 @@ struct Order {
         self.timeStamp = data ["timeStamp"] as? Timestamp ?? Timestamp()
         self.isCompleted = data ["isCompleted"] as? Bool ?? false
         self.riderId = data ["riderId"] as? String ?? ""
+        self.status = data["status"] as? String ?? ""
+        self.estimateTime = data["estimateTime"] as? Int ?? 0
+        self.statusPic = data["statusPic"] as? Int ?? 0
+        
         
     }
     
@@ -82,7 +93,10 @@ struct Order {
             "item" : order.item,
             "timeStamp" : order.timeStamp,
             "isCompleted" : order.isCompleted,
-            "riderId" : order.riderId
+            "riderId" : order.riderId,
+            "status" : order.status,
+            "estimateTime" : order.estimateTime,
+            "statusPic" : order.statusPic
             
             
         ]

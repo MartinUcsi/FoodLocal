@@ -90,4 +90,12 @@ class RoundedImageView : UIImageView {
 }
 
 
+class RoundedLabelView : UILabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 5
+    }
+}
+
+
 

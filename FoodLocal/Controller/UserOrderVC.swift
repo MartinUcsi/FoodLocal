@@ -126,6 +126,33 @@ extension UserOrderVC : UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedOrder = orders[indexPath.row]
+        performSegue(withIdentifier: Segues.ToOrderDetail, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == Segues.ToOrderDetail {
+                 if let destination = segue.destination as? orderDetailVC{
+                     destination.order = selectedOrder
+                 }
+             }
+     }
+    
+//    if segue.identifier == Segues.ToProducts {
+//        if let destination = segue.destination as? ProductsVC{
+//            destination.category = selectedCategory
+//        }
+//    }else if segue.identifier == Segues.ToFavorites {
+//        if let destination = segue.destination as? ProductsVC {
+//            destination.category = selectedCategory
+//            destination.showFavorites = true
+//
+//        }
+//    }
     
 }

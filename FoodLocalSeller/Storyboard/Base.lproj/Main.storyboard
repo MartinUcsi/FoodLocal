@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ofC-Zn-0E4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,32 +12,32 @@
             <objects>
                 <viewController id="xvf-3X-RTF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DMu-p2-a0L">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Order Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0Q-jk-Kfc">
-                                <rect key="frame" x="161.5" y="20" width="277.5" height="32.5"/>
+                                <rect key="frame" x="68.5" y="64" width="277.5" height="32.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-kX-zar" customClass="RoundedGrayShadowView" customModule="FoodLocalSeller" customModuleProvider="target">
-                                <rect key="frame" x="20" y="92.5" width="560" height="224"/>
+                                <rect key="frame" x="20" y="136.5" width="374" height="149.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t9G-wW-vwK">
-                                        <rect key="frame" x="8" y="8" width="544" height="208"/>
+                                        <rect key="frame" x="8" y="8" width="358" height="133.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-oI-rbD">
-                                                <rect key="frame" x="0.0" y="0.0" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8H-6I-ncX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Feb 2010 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvN-9n-J5O">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -44,16 +45,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oC2-DG-JV6">
-                                                <rect key="frame" x="0.0" y="76" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="51" width="358" height="31.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miF-ew-8qm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plL-Sj-C8W">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -61,16 +62,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zby-vp-KyM">
-                                                <rect key="frame" x="0.0" y="152" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="102.5" width="358" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNN-d2-i4v">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RM 266.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94T-RB-pZH">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -90,22 +91,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buB-gF-yph" customClass="RoundedGrayShadowView" customModule="FoodLocalSeller" customModuleProvider="target">
-                                <rect key="frame" x="20" y="341.5" width="560" height="224"/>
+                                <rect key="frame" x="20" y="311" width="374" height="149.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xtD-DC-hlJ">
-                                        <rect key="frame" x="8" y="8" width="544" height="208"/>
+                                        <rect key="frame" x="8" y="8" width="358" height="133.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C8f-8Z-bgm">
-                                                <rect key="frame" x="0.0" y="0.0" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="31.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTm-t9-es7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 JAN 2010 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3D-gI-lTT">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -113,16 +114,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EhS-Qg-Bg7">
-                                                <rect key="frame" x="0.0" y="76" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="51.5" width="358" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVC-k9-e5I">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn2-5g-WJQ">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -130,16 +131,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yyY-g8-u7m">
-                                                <rect key="frame" x="0.0" y="152" width="544" height="56"/>
+                                                <rect key="frame" x="0.0" y="102.5" width="358" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgR-2J-QFj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RM 175.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOE-xg-WJo">
-                                                        <rect key="frame" x="282" y="0.0" width="262" height="56"/>
+                                                        <rect key="frame" x="189" y="0.0" width="169" height="31"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -183,20 +184,20 @@
             <objects>
                 <viewController id="Ejs-CP-2g5" customClass="SellerProfileVC" customModule="FoodLocalSeller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pxa-3G-trE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="xgn-Om-Xwo">
-                                <rect key="frame" x="5" y="20" width="590" height="250"/>
+                                <rect key="frame" x="5" y="64" width="404" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fs-By-lc0">
-                                        <rect key="frame" x="259.5" y="0.0" width="71" height="32.5"/>
+                                        <rect key="frame" x="166.5" y="0.0" width="71" height="32.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWU-fm-UdD" customClass="RoundedGrayShadowView" customModule="FoodLocalSeller" customModuleProvider="target">
-                                        <rect key="frame" x="98.5" y="79.5" width="393.5" height="170.5"/>
+                                        <rect key="frame" x="5.5" y="79.5" width="393.5" height="170.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f9y-v4-w2z">
                                                 <rect key="frame" x="20" y="30" width="353.5" height="98.5"/>
@@ -268,17 +269,28 @@
                                     <constraint firstItem="rWU-fm-UdD" firstAttribute="centerX" secondItem="xgn-Om-Xwo" secondAttribute="centerX" id="pyj-eB-Rpl"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AI4-sr-HtM">
+                                <rect key="frame" x="107" y="344" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AI4-sr-HtM" secondAttribute="height" multiplier="1:1" id="hkm-b3-TpB"/>
+                                    <constraint firstAttribute="height" constant="200" id="xLg-ED-NxT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AI4-sr-HtM" firstAttribute="centerX" secondItem="Pxa-3G-trE" secondAttribute="centerX" id="78c-mp-qi0"/>
+                            <constraint firstItem="AI4-sr-HtM" firstAttribute="width" secondItem="AI4-sr-HtM" secondAttribute="height" multiplier="1:1" id="7F4-3q-s5a"/>
                             <constraint firstItem="xgn-Om-Xwo" firstAttribute="leading" secondItem="7YJ-2E-yvu" secondAttribute="leading" constant="5" id="B2f-on-loA"/>
                             <constraint firstItem="7YJ-2E-yvu" firstAttribute="trailing" secondItem="xgn-Om-Xwo" secondAttribute="trailing" constant="5" id="Vu5-Qt-LPL"/>
+                            <constraint firstItem="AI4-sr-HtM" firstAttribute="top" secondItem="xgn-Om-Xwo" secondAttribute="bottom" constant="30" id="mTg-mT-eP1"/>
                             <constraint firstItem="xgn-Om-Xwo" firstAttribute="top" secondItem="7YJ-2E-yvu" secondAttribute="top" constant="20" id="pFb-pf-Yx0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7YJ-2E-yvu"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profile2" id="jgB-2Q-ZKb"/>
                     <connections>
+                        <outlet property="qrImg" destination="AI4-sr-HtM" id="FZt-Nf-c7O"/>
                         <outlet property="sellerEmailTxt" destination="35d-8p-1fp" id="Agn-xe-uvv"/>
                         <outlet property="sellerIdTxt" destination="z13-PL-UQr" id="Tr1-ty-RUy"/>
                         <outlet property="sellerNameTxt" destination="zNz-jy-gya" id="fmD-43-gGt"/>
@@ -293,7 +305,7 @@
             <objects>
                 <viewController id="pLb-I6-aRd" customClass="SellerHomeVC" customModule="FoodLocalSeller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EJA-1U-kcu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_cat3" translatesAutoresizingMaskIntoConstraints="NO" id="eMt-8T-Sef">
@@ -301,7 +313,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pVR-g9-XTB">
-                                <rect key="frame" x="8" y="52" width="584" height="491"/>
+                                <rect key="frame" x="8" y="96" width="398" height="709"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ADd-nq-0bZ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -391,14 +403,14 @@
             <objects>
                 <viewController id="ELi-tf-eOe" customClass="SellerProductsVC" customModule="FoodLocalSeller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g5u-6h-3t8">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-6e-Q3g">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-lU-z5D">
-                                <rect key="frame" x="8" y="52" width="584" height="507"/>
+                                <rect key="frame" x="8" y="96" width="398" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -437,27 +449,27 @@
             <objects>
                 <viewController id="ZkW-4d-eTb" customClass="AddSellerProductsVC" customModule="FoodLocalSeller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tjJ-7k-5LT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-zC-b7Z">
-                                <rect key="frame" x="20" y="64" width="560" height="34"/>
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6o-j1-SD3">
-                                <rect key="frame" x="20" y="118" width="560" height="34"/>
+                                <rect key="frame" x="20" y="162" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Description Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vut-AD-44R">
-                                <rect key="frame" x="208" y="172" width="184" height="23"/>
+                                <rect key="frame" x="115" y="216" width="184" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u35-gs-OSr">
-                                <rect key="frame" x="20" y="207" width="560" height="128"/>
+                                <rect key="frame" x="20" y="251" width="374" height="128"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="nks-L8-TG3"/>
@@ -467,13 +479,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqW-Ry-aCe">
-                                <rect key="frame" x="20" y="355" width="560" height="22.5"/>
+                                <rect key="frame" x="20" y="399" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-W6-WMv" customClass="RoundedImageView" customModule="FoodLocalAdmin" customModuleProvider="target">
-                                <rect key="frame" x="200" y="389.5" width="200" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-W6-WMv" customClass="RoundedImageView" customModule="FoodLocalSeller" customModuleProvider="target">
+                                <rect key="frame" x="107" y="433.5" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="O2M-g5-a9F"/>
@@ -481,11 +493,11 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1t9-L2-riw">
-                                <rect key="frame" x="281.5" y="609.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="653.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhE-Qz-bya" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
-                                <rect key="frame" x="20" y="496" width="560" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhE-Qz-bya" customClass="RoundedButton" customModule="FoodLocalSeller" customModuleProvider="target">
+                                <rect key="frame" x="20" y="758" width="374" height="35"/>
                                 <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Add Food">

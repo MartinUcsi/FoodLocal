@@ -115,6 +115,7 @@ class RiderHomeVC: UIViewController{
             }else{
                 performSegue(withIdentifier: Segues.toAcceptOrderVC, sender: self)
                 updateRiderId(order: order)
+                
             }
         }
         
@@ -126,7 +127,10 @@ class RiderHomeVC: UIViewController{
                     let completeRef = db.collection("order").document(order.id)
             
                         completeRef.updateData([
-                            "riderId": riderRef
+                            "riderId": riderRef,
+                            "statusPic" : 2,
+                            "status" : "One of our rider has accept your order",
+                            "estimateTime" : 30
                         ]) { err in
                             if let err = err {
                                 print("Error updating document: \(err)")
@@ -134,7 +138,6 @@ class RiderHomeVC: UIViewController{
                                 print("Document successfully updated")
                             }
                         }
-        
             
         }
         
