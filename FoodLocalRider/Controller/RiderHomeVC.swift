@@ -183,6 +183,11 @@ class RiderHomeVC: UIViewController{
                     case .removed:
                         self.onDocumentRemoved(change: change)
                     }
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
                 })
             })
             

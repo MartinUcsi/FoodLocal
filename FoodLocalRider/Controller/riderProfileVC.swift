@@ -52,16 +52,23 @@ class riderProfileVC: UIViewController {
                  return
                }
                print("Current data: \(data)")
-                self.riderNameTxt.text = document.get("username") as? String ?? ""
-                self.riderIncome = document.get("riderIncome") as? Double ?? 0.00
                 
-                //Show rider Income
-               let formatter = NumberFormatter()
-               formatter.numberStyle = .currency
-                if let price = formatter.string(from: self.riderIncome as NSNumber){
-                         self.riderIncomeTxt.text = price
-                     }
-                //self.riderIncomeTxt.text = "MYR \(document.get("riderIncome") as? String ?? " --")"
+                DispatchQueue.main.async {
+                                
+                    self.riderNameTxt.text = document.get("username") as? String ?? ""
+                      self.riderIncome = document.get("riderIncome") as? Double ?? 0.00
+                      
+                      //Show rider Income
+                     let formatter = NumberFormatter()
+                     formatter.numberStyle = .currency
+                      if let price = formatter.string(from: self.riderIncome as NSNumber){
+                               self.riderIncomeTxt.text = price
+                           }
+                      //self.riderIncomeTxt.text = "MYR \(document.get("riderIncome") as? String ?? " --")"
+                    
+                }
+                
+               
                  
                
              
