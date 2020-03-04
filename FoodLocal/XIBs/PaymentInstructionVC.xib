@@ -26,30 +26,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="444.5" translatesAutoresizingMaskIntoConstraints="NO" id="bda-21-qQU" customClass="RoundedShadowView" customModule="FoodLocal" customModuleProvider="target">
                     <rect key="frame" x="20" y="164" width="374" height="578"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="1R1-8J-caB" customClass="RoundedGrayShadowView" customModule="FoodLocal" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="433" width="374" height="145"/>
+                            <rect key="frame" x="0.0" y="431" width="374" height="145"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="top" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-Fl-5fR">
-                                    <rect key="frame" x="8" y="8" width="358" height="87"/>
+                                    <rect key="frame" x="8" y="8" width="358" height="97"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Friendly Reminder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf9-jv-07f">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="36.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="46.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <color key="textColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the QR code of the rider's TouchNGo apps to complete the payment. Make sure you have enough balance for the order." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-hR-Xav">
-                                            <rect key="frame" x="0.0" y="36.5" width="336.5" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="46.5" width="336.5" height="50.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1l-ZW-daI" customClass="RoundedButton" customModule="FoodLocal" customModuleProvider="target">
                                     <rect key="frame" x="304" y="95" width="40" height="40"/>
@@ -67,28 +68,28 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="8F1-Fl-5fR" firstAttribute="leading" secondItem="1R1-8J-caB" secondAttribute="leading" constant="8" id="2ej-sl-Yac"/>
                                 <constraint firstAttribute="bottom" secondItem="Q1l-ZW-daI" secondAttribute="bottom" constant="10" id="NxP-t1-3jG"/>
                                 <constraint firstAttribute="height" constant="145" id="UzN-DE-WPH"/>
-                                <constraint firstAttribute="bottom" secondItem="8F1-Fl-5fR" secondAttribute="bottom" constant="50" id="VO3-hv-XFc"/>
+                                <constraint firstAttribute="bottom" secondItem="8F1-Fl-5fR" secondAttribute="bottom" constant="40" id="VO3-hv-XFc"/>
                                 <constraint firstAttribute="trailing" secondItem="Q1l-ZW-daI" secondAttribute="trailing" constant="30" id="cxJ-bV-7dR"/>
                                 <constraint firstItem="8F1-Fl-5fR" firstAttribute="top" secondItem="1R1-8J-caB" secondAttribute="top" constant="8" id="gzi-2s-jHz"/>
                                 <constraint firstAttribute="trailing" secondItem="8F1-Fl-5fR" secondAttribute="trailing" constant="8" id="zPO-vY-YxI"/>
                             </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchngoDetail" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-T2-Ofr">
-                            <rect key="frame" x="8" y="50" width="358" height="383"/>
+                            <rect key="frame" x="8" y="50" width="358" height="381"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="leading" secondItem="1R1-8J-caB" secondAttribute="leading" id="1Q9-BX-Ump"/>
+                        <constraint firstAttribute="bottom" secondItem="1R1-8J-caB" secondAttribute="bottom" constant="2" id="4T7-sV-h8U"/>
                         <constraint firstItem="1R1-8J-caB" firstAttribute="top" secondItem="lMq-T2-Ofr" secondAttribute="bottom" id="CQH-TD-t0t"/>
                         <constraint firstAttribute="trailing" secondItem="1R1-8J-caB" secondAttribute="trailing" id="Hk3-AS-xU6"/>
                         <constraint firstAttribute="trailing" secondItem="lMq-T2-Ofr" secondAttribute="trailing" constant="8" id="Z8e-eP-q9k"/>
-                        <constraint firstAttribute="bottom" secondItem="1R1-8J-caB" secondAttribute="baseline" symbolic="YES" id="Zz9-i8-xtO"/>
                         <constraint firstItem="lMq-T2-Ofr" firstAttribute="leading" secondItem="bda-21-qQU" secondAttribute="leading" constant="8" id="bb2-CV-jKL"/>
                         <constraint firstItem="lMq-T2-Ofr" firstAttribute="top" secondItem="bda-21-qQU" secondAttribute="top" constant="50" id="rBh-UH-qc0"/>
                     </constraints>
@@ -106,7 +107,7 @@
                 <constraint firstAttribute="bottom" secondItem="v4z-G4-cm3" secondAttribute="bottom" id="dbX-Sg-zv2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="nwY-n4-6ic"/>
-            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+            <point key="canvasLocation" x="157.97101449275362" y="122.54464285714285"/>
         </view>
     </objects>
     <resources>

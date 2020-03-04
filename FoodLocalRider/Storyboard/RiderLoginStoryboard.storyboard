@@ -50,11 +50,8 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.83529411760000005" green="0.3921568627" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="forgotPassClicked:" destination="ULk-FJ-YhU" eventType="touchUpInside" id="YC3-6b-51H"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVQ-j7-6xh" customClass="RoundedButton" customModule="FoodLocalSeller" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVQ-j7-6xh" customClass="RoundedButton" customModule="FoodLocalRider" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181.5" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -68,7 +65,7 @@
                                             <action selector="loginClicked:" destination="ULk-FJ-YhU" eventType="touchUpInside" id="fBi-Ht-DyF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp9-FE-Fcz" customClass="RoundedButton" customModule="FoodLocalSeller" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp9-FE-Fcz" customClass="RoundedButton" customModule="FoodLocalRider" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233.5" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -174,7 +171,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Num-ki-8BG" customClass="RoundedButton" customModule="FoodLocalSeller" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Num-ki-8BG" customClass="RoundedButton" customModule="FoodLocalRider" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="294.5" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.12549019610000001" blue="0.2470588235" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -241,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZE-ma-t4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623.1884057971015" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1862" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jed-fN-Uc9">

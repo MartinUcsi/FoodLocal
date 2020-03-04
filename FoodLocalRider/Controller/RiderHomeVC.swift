@@ -43,22 +43,24 @@ class RiderHomeVC: UIViewController{
             
         }
         override func viewWillAppear(_ animated: Bool) {
-            setOrderListener()
+            super.viewWillAppear(animated)
+            
+            if Auth.auth().currentUser == nil {
+                // presentAlert()
+                self.presentLoginController()
+            }else{
+                print("Got Current User !!")
+                setOrderListener()
+            }
         }
         
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            
-            
-            if Auth.auth().currentUser == nil {
-                    presentAlert()
-                }else{
-                    print("Got Current User !!")
-                }
+           // setOrderListener()
         }
         
         override func viewWillDisappear(_ animated: Bool) {
-              listener.remove()
+              listener?.remove()
               riderListener?.remove()
               riderIdRef = ""
               orders.removeAll()

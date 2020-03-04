@@ -32,6 +32,9 @@ class RIderLoginVC: UIViewController {
         db = Firestore.firestore()
        
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        listener?.remove()
+    }
     
     @IBAction func forgotPassClicked(_ sender: Any) {
            let vc = ForgotPasswordVC()
@@ -50,10 +53,14 @@ class RIderLoginVC: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                   
                     if error == nil {
-
-                        print("Rider Sign-in Sucess")
-                        self.activityIndicator.stopAnimating()
-                        self.dismiss(animated: true, completion: nil)
+                        //Check User permission
+                      //  self.checkUserPermission()
+                        guard let riderRef = Auth.auth().currentUser?.uid else {return}
+                        self.checkUserPermission(idRef: riderRef)
+                       // print(riderRef)
+//                        print("Rider Sign-in Sucess")
+//                        self.activityIndicator.stopAnimating()
+//                        self.dismiss(animated: true, completion: nil)
                         
                     }else{
                         print(error?.localizedDescription)
@@ -69,5 +76,54 @@ class RIderLoginVC: UIViewController {
             }
     }
     
+    func checkUserPermission(idRef: String){
+      
+        
+              listener = db.collection("riders").document(idRef).addSnapshotListener { documentSnapshot, error in
+               guard let document = documentSnapshot else {
+                 print("Error fetching document: \(error!)")
+                 return
+               }
+               guard let data = document.data() else {
+                //here is the user is invalid
+                do {
+                    self.activityIndicator.stopAnimating()
+                    self.simpleAlert(title: "Invalid account!", msg: "Your account is not yet registered on our server.")
+                    try Auth.auth().signOut()
+                    UserService.logOutUser()
+                } catch {
+                    debugPrint(error)
+                }
+                 print("Document data was empty.")
+                 print("Invalid Rider Account")
+                 return
+               }
+                
+                //here the user is valid
+                print("Rider valid")
+               print("Current data: \(data)")
+                
+                self.activityIndicator.stopAnimating()
+                self.dismiss(animated: true, completion: nil)
+                
+                
+                
+                
+         //    self.orderId.text = "OrderID# \(document.get("id") as? String ?? "OrderID#----")"
+//                 self.riderIdRef = document.get("riderId") as? String ?? ""
+//
+//                 if self.riderIdRef != riderRef {
+//                     self.presentAlert()
+//                 }
+             
+             }
+    }
+    
+    
+   
  
 }
+
+
+
+
