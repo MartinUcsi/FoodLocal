@@ -36,13 +36,12 @@ class SellerHomeVC: UIViewController {
         collectionView.register(UINib(nibName: Identifiers.SellerCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SellerCell)
     }
     
-       
-     override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
          setCategoriesListener()
     }
-    
+   
     override func viewWillDisappear(_ animated: Bool) {
-        listener.remove()
+        listener?.remove()
         categories.removeAll()
         collectionView.reloadData()
     }

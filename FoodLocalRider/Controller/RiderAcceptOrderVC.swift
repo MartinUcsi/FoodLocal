@@ -50,56 +50,124 @@ class RiderAcceptOrderVC: UIViewController {
         completeBtn.isHidden = true
         queueBtn.isEnabled = false
         otwBtn.isEnabled = false
-        addressArray.append("\(order.lineOne) \n")
-        addressArray.append("\(order.lineTwo)")
-        
-        for i in order.item{
-            itemArray.append("\(i) \n")
-           
-        }
+//        addressArray.append("\(order.lineOne) \n")
+//        addressArray.append("\(order.lineTwo)")
+//
+//        for i in order.item{
+//            itemArray.append("\(i) \n")
+//
+//        }
+        grabDataFromDatabase()
     }
     override func viewDidAppear(_ animated: Bool) {
          
        setRidersListener()
         
         //show item order
-        OrderItemArrayTxt.text = itemArray
+        
+        //OrderItemArrayTxt.text = itemArray
         
         //Show total amount
-        let formatter = NumberFormatter()
-              formatter.numberStyle = .currency
-              if let price = formatter.string(from: order.amount as NSNumber){
-                  amountTxt.text = "Total: \(price)"
-              }
+//
+//        let formatter = NumberFormatter()
+//            formatter.numberStyle = .currency
+//              if let price = formatter.string(from: order.amount as NSNumber){
+//                  amountTxt.text = "Total: \(price)"
+//              }
               
         //Show Payment Method
-        paymentMethodTxt.text = "PAYMENT METHOD: \(order.paymentMethod)"
+  //      paymentMethodTxt.text = "PAYMENT METHOD: \(order.paymentMethod)"
         
         //Show Contact
-        customerPhoneTxt.text = "CONTACT: \(order.phoneNumber)"
+    //    customerPhoneTxt.text = "CONTACT: \(order.phoneNumber)"
         
         //Show CustomerName
-        customerNameTxt.text = "NAME: \(order.customerName)"
+    //    customerNameTxt.text = "NAME: \(order.customerName)"
         
         //Show address
-        customerAddress.text = addressArray
+    //    customerAddress.text = addressArray
+        
         
         //Show time
-            let OrderTime = order.timeStamp
-           let aDate = OrderTime.dateValue()
-           let formatter2 = DateFormatter()
-           formatter2.locale = Locale(identifier: "en_US_POSIX")
-          // formatter2.dateFormat = "HH:mm '-' dd/MM/yyyy"
-           formatter2.dateFormat = "'ORDER TIME: 'd MMM yyyy',' h:mm a"
-           let formattedTimeZoneStr = formatter2.string(from: aDate)
-           //print(formattedTimeZoneStr)
-            
-           orderTimeTxt.text = formattedTimeZoneStr
+//            let OrderTime = order.timeStamp
+//           let aDate = OrderTime.dateValue()
+//           let formatter2 = DateFormatter()
+//           formatter2.locale = Locale(identifier: "en_US_POSIX")
+//          // formatter2.dateFormat = "HH:mm '-' dd/MM/yyyy"
+//           formatter2.dateFormat = "'ORDER TIME: 'd MMM yyyy',' h:mm a"
+//           let formattedTimeZoneStr = formatter2.string(from: aDate)
+//           //print(formattedTimeZoneStr)
+//
+//           orderTimeTxt.text = formattedTimeZoneStr
     }
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()
         addressArray.removeAll()
     }
+    
+    func grabDataFromDatabase(){
+        DispatchQueue.global().async(qos: .background){
+            //Put the backgroud algorithm here
+            
+            //Append line 1 and line 2
+            self.addressArray.append("\(self.order.lineOne) \n")
+            self.addressArray.append("\(self.order.lineTwo)")
+                   
+            //Append all the item in order item into itemArray[]
+            for i in self.order.item{
+                self.itemArray.append("\(i) \n")
+              
+           }
+           
+            //Show total amount
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            let price = formatter.string(from: self.order.amount as NSNumber)
+                      
+                //Show time
+            let OrderTime = self.order.timeStamp
+                let aDate = OrderTime.dateValue()
+                let formatter2 = DateFormatter()
+                formatter2.locale = Locale(identifier: "en_US_POSIX")
+               // formatter2.dateFormat = "HH:mm '-' dd/MM/yyyy"
+                formatter2.dateFormat = "'ORDER TIME: 'd MMM yyyy',' h:mm a"
+                let formattedTimeZoneStr = formatter2.string(from: aDate)
+                //print(formattedTimeZoneStr)
+    
+            DispatchQueue.main.async {
+                //code for main thread here --> Update the UI
+                
+                //Show order id
+                self.orderId.text = "OrderID# \(self.order.id)"
+                
+                
+                //show item order
+                self.OrderItemArrayTxt.text = self.itemArray
+                       
+                //show total amount
+                self.amountTxt.text = "Total: \(price ?? "")"
+                
+                //Show Payment Method
+                self.paymentMethodTxt.text = "PAYMENT METHOD: \(self.order.paymentMethod)"
+                   
+                //Show Contact
+                self.customerPhoneTxt.text = "CONTACT: \(self.order.phoneNumber)"
+               
+                //Show CustomerName
+                self.customerNameTxt.text = "NAME: \(self.order.customerName)"
+               
+                //Show address
+                self.customerAddress.text = self.addressArray
+                
+                //Show date
+                self.orderTimeTxt.text = formattedTimeZoneStr
+            
+            }
+            
+            
+        }
+    }
+    
     
     func presentCancelAlert(){
         let alertController = UIAlertController(title: "Cancel Order?", message: "Are you sure you want to cancel?", preferredStyle: .alert)
@@ -339,7 +407,7 @@ class RiderAcceptOrderVC: UIViewController {
             return
           }
           print("Current data: \(data)")
-        self.orderId.text = "OrderID# \(document.get("id") as? String ?? "OrderID#----")"
+    //    self.orderId.text = "OrderID# \(document.get("id") as? String ?? "OrderID#----")"
             self.riderIdRef = document.get("riderId") as? String ?? ""
           
             if self.riderIdRef != riderRef {
