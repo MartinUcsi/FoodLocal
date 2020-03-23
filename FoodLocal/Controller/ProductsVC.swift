@@ -12,7 +12,7 @@ import FirebaseFirestore
 class ProductsVC: UIViewController, ProductCellDelegate {
     
     
-
+    
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,20 +28,20 @@ class ProductsVC: UIViewController, ProductCellDelegate {
         super.viewDidLoad()
         db = Firestore.firestore()
         setupTableView()
-
-    
+        
+        
     }
     func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.ProductCell, bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
-       
+        
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
         setupQuery()
         
-       
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()
@@ -99,7 +99,7 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     
     
     
-
+    
 }
 
 extension ProductsVC : UITableViewDelegate, UITableViewDataSource {
@@ -159,5 +159,5 @@ extension ProductsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     
-     
+    
 }

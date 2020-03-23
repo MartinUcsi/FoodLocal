@@ -119,7 +119,7 @@ extension AdminOrderHistory : UITableViewDelegate, UITableViewDataSource{
          if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.OrderCell, for: indexPath) as? OrderCell {
                    
             cell.configureCell(order: orders[indexPath.row], delegate: self)
-            cell.completeBtn.isHidden = true
+            
                    
                    
             return cell

@@ -5,7 +5,7 @@
 //  Created by Martin Parker on 28/12/2019.
 //  Copyright © 2019 Martin Parker. All rights reserved.
 //
-
+import UIKit
 import Foundation
 import Firebase
 import FirebaseFirestore
@@ -110,7 +110,9 @@ final class _UserService {
         favsListener = nil
         user = User()
         favorites.removeAll()
-        
+       
         
     }
+    
+
 }

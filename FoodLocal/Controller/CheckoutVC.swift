@@ -75,7 +75,6 @@ class CheckoutVC: UIViewController, CartItemDelegate{
         processingFeeLbl.text = StripeCart.processingFees.penniesToFormattedCurrency()
         shippingCostLbl.text = StripeCart.shippingFees.penniesToFormattedCurrency()
         totalLbl.text = StripeCart.total.penniesToFormattedCurrency()
-        
     }
     
     func setupStripeConfig(){
@@ -96,88 +95,81 @@ class CheckoutVC: UIViewController, CartItemDelegate{
       
     
     
-// MARK: Place Order Clicked
+    // MARK: Place Order Clicked
     
     @IBAction func placeOrderClicked(_ sender: Any) {
-//        simpleAlert(title: "CartItem", msg: "\(StripeCart.cartItems.count)")
-//        let orderName = StripeCart.cartItems.filter { $0.name == "Chinese Crepe" }
-//        print(orderName)
-       // print(StripeCart.cartItems)
+        //        let orderName = StripeCart.cartItems.filter { $0.name == "Chinese Crepe" }
+        
         if StripeCart.cartItems.count == 0 {
             simpleAlert(title: "Error", msg: "There is nothing inside the cart!")
         }else if addressInfoArray.isEmpty == true {
-             simpleAlert(title: "Error", msg: "Please fill in the delivery address!")
+            simpleAlert(title: "Error", msg: "Please fill in the delivery address!")
         }else if selectedPaymentMethod == ""{
             simpleAlert(title: "Error", msg: "Please selected the payment method")
         }else{
-    
             
-        
-        
             var itemArray = [String]()
-        for item in StripeCart.cartItems.count {
-            //print(item)
-            //print("\(StripeCart.cartItems[item].name)")
-            itemArray.append("\(StripeCart.cartItems[item].name) , X 1")
-        }
-        
-        //simpleAlert(title: "CartItem", msg: "\(itemArray)")
-        
-//        paymentContext.requestPayment()
-//        activityIndicator.startAnimating()
-        
-       // print("\(addressInfoArray[2])")
-        
-        activityIndicator.startAnimating()
-        // Variable
-     //   let newDocumentID = UUID().uuidString
-        let userId = Auth.auth().currentUser?.uid
-        let totalAmount: Double = (Double(StripeCart.total))/100
-        let CustomerName = addressInfoArray[0]
-        let PhoneNumber = addressInfoArray[1]
-        let LineOne = addressInfoArray[2]
-        let LineTwo = addressInfoArray[3]
-        
-        //print(totalAmount)
-        //upload document
-        var docRef: DocumentReference!
-         docRef = Firestore.firestore().collection("order").document()
-//        let order = Order.init(id: userId!,
-//                               amount: totalAmount,
-//                               customerName: CustomerName,
-//                               item: itemArray)
-       // print(docRef.documentID)
-        let order = Order.init(id: docRef.documentID,
-                               customerId: userId!,
-                               amount: totalAmount,
-                               customerName: CustomerName,
-                               phoneNumber: PhoneNumber,
-                               lineOne: LineOne,
-                               lineTwo: LineTwo,
-                               paymentMethod: selectedPaymentMethod,
-                               item: itemArray)
-        
-       
-        
-
-        let data = Order.modelToData(order: order)
-        docRef.setData(data, merge: true) { (error) in
-            if let error = error {
-                self.handleError(error: error, msg: "Unable to upload new order to firestore")
-                return
+            for item in StripeCart.cartItems.count {
+                //print(item)
+                //print("\(StripeCart.cartItems[item].name)")
+                itemArray.append("\(StripeCart.cartItems[item].name) , X 1")
             }
-            self.activityIndicator.stopAnimating()
 
-            let alertController = UIAlertController(title: "Sucess", message: "Order Created!", preferredStyle: .alert)
-            let OK = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.navigationController?.popToRootViewController(animated: true)
-                StripeCart.clearCart()
-                self.tableView.reloadData()
-                self.setupPaymentInfo()
+            activityIndicator.startAnimating()
+            // Variable
+            let userId = Auth.auth().currentUser?.uid
+            let totalAmount: Double = (Double(StripeCart.total))/100
+            let CustomerName = addressInfoArray[0]
+            let PhoneNumber = addressInfoArray[1]
+            let LineOne = addressInfoArray[2]
+            let LineTwo = addressInfoArray[3]
+            
+            //print(totalAmount)
+            //upload document
+            var docRef: DocumentReference!
+            docRef = Firestore.firestore().collection("order").document()
+            //        let order = Order.init(id: userId!,
+            //                               amount: totalAmount,
+            //                               customerName: CustomerName,
+            //                               item: itemArray)
+            // print(docRef.documentID)
+            let order = Order.init(id: docRef.documentID,
+                                   customerId: userId!,
+                                   amount: totalAmount,
+                                   customerName: CustomerName,
+                                   phoneNumber: PhoneNumber,
+                                   lineOne: LineOne,
+                                   lineTwo: LineTwo,
+                                   paymentMethod: selectedPaymentMethod,
+                                   item: itemArray)
+            
+            
+            
+            
+            let data = Order.modelToData(order: order)
+            docRef.setData(data, merge: true) { (error) in
+                if let error = error {
+                    self.handleError(error: error, msg: "Unable to upload new order to firestore")
+                    return
+                }
+                self.activityIndicator.stopAnimating()
+                
+                let alertController = UIAlertController(title: "Sucess", message: "Order Created!", preferredStyle: .alert)
+                let OK = UIAlertAction(title: "OK", style: .default) { (action) in
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                    //                let OrderVC = self.storyboard?.instantiateViewController(identifier: StoryboardID.OrderScreen) as! UserOrderVC
+                    //
+                    //                self.present(OrderVC, animated: true, completion: nil)
+                    //
+                    StripeCart.clearCart()
+                    self.tableView.reloadData()
+                    self.setupPaymentInfo()
+                }
+                alertController.addAction(OK)
+                self.present(alertController, animated: true, completion: nil)
             }
-            alertController.addAction(OK)
-            self.present(alertController, animated: true, completion: nil)
-        }
         }
         
     }
@@ -191,9 +183,6 @@ class CheckoutVC: UIViewController, CartItemDelegate{
         //paymentContext.pushPaymentOptionsViewController()
         performSegue(withIdentifier: Identifiers.goToPaymentMethod, sender: self)
       
-        
-       
-        
     }
     
   
@@ -215,6 +204,8 @@ class CheckoutVC: UIViewController, CartItemDelegate{
 }
 
 extension CheckoutVC : STPPaymentContextDelegate {
+
+    
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
         
         // Updating the selected payment method
@@ -241,26 +232,30 @@ extension CheckoutVC : STPPaymentContextDelegate {
         }
     }
     
+//    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+//        activityIndicator.stopAnimating()
+//
+//        let alertController = UIAlertController(title: "Error", message: "You must login in before making purchases.", preferredStyle: .alert)
+//
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//
+//        let login = UIAlertAction(title: "Login", style: .default) { (action) in
+//            let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard , bundle: nil)
+//            let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.LoginVC)
+//            self.present(controller, animated: true, completion: nil)
+//        }
+//
+//        alertController.addAction(cancel)
+//        alertController.addAction(login)
+//        present(alertController, animated: true, completion: nil)
+////
+//    }
+    
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-        activityIndicator.stopAnimating()
-        
-        let alertController = UIAlertController(title: "Error", message: "You must login in before making purchases.", preferredStyle: .alert)
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        let login = UIAlertAction(title: "Login", style: .default) { (action) in
-            let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard , bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.LoginVC)
-            self.present(controller, animated: true, completion: nil)
-        }
-        
-        alertController.addAction(cancel)
-        alertController.addAction(login)
-        present(alertController, animated: true, completion: nil)
-        
-    }
+           
+       }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         

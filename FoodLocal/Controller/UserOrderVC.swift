@@ -12,7 +12,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class UserOrderVC: UIViewController {
-
+    
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +29,7 @@ class UserOrderVC: UIViewController {
         db = Firestore.firestore()
         setupTableView()
         
-     
+        
     }
     
     func setupTableView(){
@@ -41,79 +41,79 @@ class UserOrderVC: UIViewController {
         setOrderListener()
     }
     override func viewWillDisappear(_ animated: Bool) {
-         listener.remove()
-         orders.removeAll()
-         tableView.reloadData()
+        listener.remove()
+        orders.removeAll()
+        tableView.reloadData()
     }
-
     
-     func setOrderListener(){
-            guard let userRef = Auth.auth().currentUser?.uid else {return}
+    
+    func setOrderListener(){
+        guard let userRef = Auth.auth().currentUser?.uid else {return}
         
-         listener = db.collection("order").whereField("isCompleted", isEqualTo: false)
-             .whereField("customerId", isEqualTo: userRef)
-             .order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
-             if let error = error {
-                 debugPrint(error.localizedDescription)
-                 return
-             }
-             snap?.documentChanges.forEach({ (change) in
-                 let data = change.document.data()
-                 let order = Order.init(data: data)
-                 
-                 switch change.type {
-                     
-                 case .added:
-                     self.onDocumentAdded(change: change, order: order)
-                 case .modified:
-                     self.onDocumentModified(change: change, order: order)
-                 case .removed:
-                     self.onDocumentRemoved(change: change)
-                 }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        listener = db.collection("order").whereField("isCompleted", isEqualTo: false)
+            .whereField("customerId", isEqualTo: userRef)
+            .order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    return
                 }
-                
-             })
-         })
-         
-     }
-     
+                snap?.documentChanges.forEach({ (change) in
+                    let data = change.document.data()
+                    let order = Order.init(data: data)
+                    
+                    switch change.type {
+                        
+                    case .added:
+                        self.onDocumentAdded(change: change, order: order)
+                    case .modified:
+                        self.onDocumentModified(change: change, order: order)
+                    case .removed:
+                        self.onDocumentRemoved(change: change)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                })
+            })
+        
+    }
+    
     
 }
 
 
 extension UserOrderVC : UITableViewDelegate, UITableViewDataSource{
     
-      func onDocumentAdded(change: DocumentChange, order: Order){
-          let newIndex = Int(change.newIndex)
-          orders.insert(order, at: newIndex)
-          tableView.insertRows(at: [IndexPath(item: newIndex, section: 0)], with: .top)
-      }
-      func onDocumentModified(change: DocumentChange, order: Order){
-          if change.newIndex == change.oldIndex {
-              //Item Changed, but remained in the same position
-              let index = Int(change.newIndex)
-              orders[index] = order
-              tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
-          }else{
-              //Item Changed and Changed position
-              let oldIndex = Int(change.oldIndex)
-              let newIndex = Int(change.newIndex)
-              orders.remove(at: oldIndex)
-              orders.insert(order, at: newIndex)
-              
-              tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
-          }
-          
-      }
-      
-      func onDocumentRemoved(change: DocumentChange){
-          let oldIndex = Int(change.oldIndex)
-          orders.remove(at: oldIndex)
-          tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .automatic)
-      }
+    func onDocumentAdded(change: DocumentChange, order: Order){
+        let newIndex = Int(change.newIndex)
+        orders.insert(order, at: newIndex)
+        tableView.insertRows(at: [IndexPath(item: newIndex, section: 0)], with: .top)
+    }
+    func onDocumentModified(change: DocumentChange, order: Order){
+        if change.newIndex == change.oldIndex {
+            //Item Changed, but remained in the same position
+            let index = Int(change.newIndex)
+            orders[index] = order
+            tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
+        }else{
+            //Item Changed and Changed position
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            orders.remove(at: oldIndex)
+            orders.insert(order, at: newIndex)
+            
+            tableView.moveRow(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
+        
+    }
+    
+    func onDocumentRemoved(change: DocumentChange){
+        let oldIndex = Int(change.oldIndex)
+        orders.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(item: oldIndex, section: 0)], with: .automatic)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
@@ -141,23 +141,23 @@ extension UserOrderVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          if segue.identifier == Segues.ToOrderDetail {
-                 if let destination = segue.destination as? orderDetailVC{
-                     destination.order = selectedOrder
-                 }
-             }
-     }
+        if segue.identifier == Segues.ToOrderDetail {
+            if let destination = segue.destination as? orderDetailVC{
+                destination.order = selectedOrder
+            }
+        }
+    }
     
-//    if segue.identifier == Segues.ToProducts {
-//        if let destination = segue.destination as? ProductsVC{
-//            destination.category = selectedCategory
-//        }
-//    }else if segue.identifier == Segues.ToFavorites {
-//        if let destination = segue.destination as? ProductsVC {
-//            destination.category = selectedCategory
-//            destination.showFavorites = true
-//
-//        }
-//    }
+    //    if segue.identifier == Segues.ToProducts {
+    //        if let destination = segue.destination as? ProductsVC{
+    //            destination.category = selectedCategory
+    //        }
+    //    }else if segue.identifier == Segues.ToFavorites {
+    //        if let destination = segue.destination as? ProductsVC {
+    //            destination.category = selectedCategory
+    //            destination.showFavorites = true
+    //
+    //        }
+    //    }
     
 }

@@ -1,9 +1,9 @@
 //
-//  viewController.swift
-//  Artable
+//  SearchBarVC.swift
+//  FoodLocal
 //
-//  Created by Martin Parker on 09/12/2019.
-//  Copyright © 2019 Martin Parker. All rights reserved.
+//  Created by Martin Parker on 06/03/2020.
+//  Copyright © 2020 Martin Parker. All rights reserved.
 //
 
 import UIKit
@@ -11,48 +11,50 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class HomeVC: UIViewController {
+
+class SearchBarVC: UIViewController, UISearchBarDelegate {
     
-    //Outlets
-    @IBOutlet weak var loginOutBtn: UIBarButtonItem!
+    //Outlet
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    // Variable
+    //Variable
     var categories = [Category]()
+    //current categories array
+    //  var currentCategories = [Category]() //update collection view
+    
     var selectedCategory : Category!
     var db : Firestore!
     var listener : ListenerRegistration!
+    var listener2 : ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        CheckIsUserExist()
         setupCollectionView()
+        setUpSearchBar()
         
-    }
-    
-    func CheckIsUserExist(){
-        if Auth.auth().currentUser == nil{
-           self.presentLoginController()
-        }
+        searchBar.placeholder = "Search for food"
     }
     
     func setupCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setCategoriesListener()
-        
+        // setCategoriesListener()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         listener?.remove()
         categories.removeAll()
+        searchBar.text = ""
         collectionView.reloadData()
     }
+    
     func setCategoriesListener(){
         
         
@@ -67,7 +69,12 @@ class HomeVC: UIViewController {
             snap?.documentChanges.forEach({ (change) in
                 let data = change.document.data()
                 let category = Category.init(data: data)
-
+                
+                //                print(category.id)
+                //
+                //                if category.id == "16hwqKFBp46saNuU3ykL"{
+                //                    print("success! matching")
+                //                }
                 
                 switch change.type {
                 case .added:
@@ -87,23 +94,63 @@ class HomeVC: UIViewController {
     }
     
     
-    @IBAction func favoritesClicked(_ sender: Any) {
-        performSegue(withIdentifier: Segues.ToFavorites, sender: self)
-    }
-    
-    
-    // function to load the LoginStorboard
-    func presentLoginController(){
-        let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard , bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.LoginVC)
-        present(controller, animated: true, completion: nil)
+    private func setUpSearchBar(){
+        searchBar.delegate = self
         
     }
     
+    func searchCategories(text: String){
+        
+        listener = db.collection("categories").whereField("arrayName", arrayContains: text).addSnapshotListener({ (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let category = Category.init(data: data)
+                
+                
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change:change,category: category)
+                case .modified:
+                    self.onDocumentModified(change: change, category: category)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                }
+                
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
+            })
+        })
+    }
+    //Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else{
+            categories.removeAll()
+            collectionView.reloadData()
+            return
+        }
+        
+        guard let text = searchBar.text else { return }
+        searchCategories(text: text.lowercased())
+        
+        // return category.name.lowercased().contains(searchText.lowercased())
+        
+    }
+    //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //        guard let text = searchBar.text else { return }
+    //
+    //        searchCategories(text: text.lowercased())
+    //    }
 }
 
-
-extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension SearchBarVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func onDocumentAdded(change: DocumentChange, category: Category){
         
@@ -155,7 +202,6 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categories[indexPath.row]
         performSegue(withIdentifier: Segues.ToProducts, sender: self)
@@ -167,45 +213,10 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             if let destination = segue.destination as? ProductsVC{
                 destination.category = selectedCategory
             }
-        }else if segue.identifier == Segues.ToFavorites {
-            if let destination = segue.destination as? ProductsVC {
-                destination.category = selectedCategory
-                destination.showFavorites = true
-                
-            }
         }
     }
     
+    
+    
+    
 }
-
-//This is the prior code, left for reference
-
-//func fetchDocument(){
-//       let docRef = db.collection("categories").document("2BhZP7c0YgBM9IXxXcfM")
-//
-//       listener = docRef.addSnapshotListener { (snap, error) in
-//           self.categories.removeAll()
-//           guard let data = snap?.data() else { return }
-//           let newCategory = Category.init(data: data)
-//           self.categories.append(newCategory)
-//           self.collectionView.reloadData()
-//       }
-//
-//
-//   }
-//
-//   func fetchCollection(){
-//       let collectionReference = db.collection("categories")
-//
-//       listener = collectionReference.addSnapshotListener { (snap, error) in
-//           guard let documents = snap?.documents else { return }
-//           self.categories.removeAll()
-//
-//           for document in documents {
-//               let data = document.data()
-//               let newCategory = Category.init(data: data)
-//               self.categories.append(newCategory)
-//           }
-//           self.collectionView.reloadData()
-//       }
-//   }

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class RegisterVC: UIViewController {
-
+    
     // Outlet
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
@@ -23,7 +23,7 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         passwordTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         confirmPassTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
@@ -56,7 +56,7 @@ class RegisterVC: UIViewController {
     
     //Action
     @IBAction func registerClicked(_ sender: UIButton) {
- 
+        
         activityIndicator.startAnimating()
         
         
@@ -68,53 +68,84 @@ class RegisterVC: UIViewController {
                 return
             }
             
-            guard let authUser = Auth.auth().currentUser else{
-                return
-            }
-            
-            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-            
-            authUser.link(with: credential) { (result, error) in
-                
-                if let error = error {
-                    //Give user UIAlert to show them error
-                    Auth.auth().handleFireAuthError(error: error, vc: self)
-                    self.activityIndicator.stopAnimating()
-                    
-                }else{
-
-                    guard let firUser = result?.user else { return }
-                    let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
-                    // Upload to firestore
-                    self.createFirestoreUser(user: artUser)
-                    
-                }
-                
-            }
-            
-//            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//
-//
-//                if error == nil {
-//                    //User create success, navigate to another ViewController
-//                    print ("register success")
-//                    self.activityIndicator.stopAnimating()
-//                    self.dismiss(animated: true, completion: nil)
-//                }else{
-//                    print(error?.localizedDescription)
-//
-//                    //Give user UIAlert to show them error
-//                    Auth.auth().handleFireAuthError(error: error!, vc: self)
-//                    self.activityIndicator.stopAnimating()
-//                }
+//            guard let authUser = Auth.auth().currentUser else{
+//                return
 //            }
-        }else{
-            //Give user UIAlert to show them error
-            self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
-            self.activityIndicator.stopAnimating()
+//
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                           
+                           
+                           if error == nil {
+                               //User create success, navigate to another ViewController
+                               print ("register success")
+                               
+                               guard let firUser = authResult?.user else { return }
+                               let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+                               // Upload to firestore
+                               
+                               self.createFirestoreUser(user: artUser)
+                               
+                           }else{
+                               print(error?.localizedDescription)
+                               
+                               //Give user UIAlert to show them error
+                               Auth.auth().handleFireAuthError(error: error!, vc: self)
+                               self.activityIndicator.stopAnimating()
+                           }
+                       }
+                   }else{
+                       //Give user UIAlert to show them error
+                       self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
+                       self.activityIndicator.stopAnimating()
+                       
+                   }
             
-        }
-
+            
+//            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+//
+//            authUser.link(with: credential) { (result, error) in
+//
+//                if let error = error {
+//                    //Give user UIAlert to show them error
+//                    Auth.auth().handleFireAuthError(error: error, vc: self)
+//                    self.activityIndicator.stopAnimating()
+//
+//                }else{
+//
+//                    guard let firUser = result?.user else { return }
+//                    let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+//                    // Upload to firestore
+//                    self.createFirestoreUser(user: artUser)
+//
+//                }
+//
+//            }
+//
+//            //            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//            //
+//            //
+//            //                if error == nil {
+//            //                    //User create success, navigate to another ViewController
+//            //                    print ("register success")
+//            //                    self.activityIndicator.stopAnimating()
+//            //                    self.dismiss(animated: true, completion: nil)
+//            //                }else{
+//            //                    print(error?.localizedDescription)
+//            //
+//            //                    //Give user UIAlert to show them error
+//            //                    Auth.auth().handleFireAuthError(error: error!, vc: self)
+//            //                    self.activityIndicator.stopAnimating()
+//            //                }
+//            //            }
+//        }else{
+//            //Give user UIAlert to show them error
+//            self.simpleAlert(title: "Oops!", msg: "Please fill in all the required fields")
+//            self.activityIndicator.stopAnimating()
+//
+//        }
+            
+            
+        
     }
     
     func createFirestoreUser(user: User){
@@ -138,5 +169,5 @@ class RegisterVC: UIViewController {
     }
     
     
-
+    
 }

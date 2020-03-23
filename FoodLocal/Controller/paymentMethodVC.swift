@@ -10,44 +10,37 @@ import UIKit
 
 
 class paymentMethodVC: UIViewController {
-
     
     // variable
     var paymentMethodTxt = ""
- 
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        
     }
     
-//Action
- 
-  
+    //Action
+    
+    
     @IBAction func touchNGoClicked(_ sender: Any) {
-      
-        
-        
-               
-   
-         self.paymentMethodTxt = "TouchNGo"
+       
+        self.paymentMethodTxt = "TouchNGo"
         performSegue(withIdentifier: Identifiers.backToCheckout, sender: self)
-       // self.navigationController?.popViewController(animated: true)
-
+        // self.navigationController?.popViewController(animated: true)
+        
         //Show paymentDetailVC
         let vc = PaymentInstructionVC()
         vc.paymentImageNo = 1
         vc.reminderNotice = "Friendly Reminder:"
         vc.DetailNotice = "Scan the QR code of the rider's TouchNGo apps to complete the payment. Make sure you have enough balance for the order."
-
-
+        
+        
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         
         self.present(vc, animated: false, completion: nil)
-
+        
         
     }
     
@@ -56,34 +49,34 @@ class paymentMethodVC: UIViewController {
         
         self.paymentMethodTxt = "MaybankQR"
         performSegue(withIdentifier: Identifiers.backToCheckout, sender: self)
-
+        
         //Show paymentDetailVC
         let vc = PaymentInstructionVC()
         vc.paymentImageNo = 2
         vc.reminderNotice = "Friendly Reminder:"
         vc.DetailNotice = "Scan the QR code of the rider's Maybank MY apps to complete the payment. Make sure you have enough balance for the order."
-
-
+        
+        
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: false, completion: nil)
     }
-
+    
     @IBAction func grabPayClicked(_ sender: Any) {
         
         
         
         self.paymentMethodTxt = "GrabPay"
         performSegue(withIdentifier: Identifiers.backToCheckout, sender: self)
-
-
+        
+        
         //Show paymentDetailVC
         let vc = PaymentInstructionVC()
         vc.paymentImageNo = 3
         vc.reminderNotice = "Friendly Reminder:"
         vc.DetailNotice = "Scan the QR code of the rider's Grab apps to complete the payment. Make sure you have enough balance for the order."
-
-
+        
+        
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: false, completion: nil)
@@ -104,14 +97,14 @@ class paymentMethodVC: UIViewController {
         
         self.paymentMethodTxt = "Boost"
         performSegue(withIdentifier: Identifiers.backToCheckout, sender: self)
-
+        
         //Show paymentDetailVC
         let vc = PaymentInstructionVC()
         vc.paymentImageNo = 4
         vc.reminderNotice = "Friendly Reminder:"
         vc.DetailNotice = "Scan the QR code of the rider's Boost apps to complete the payment. Make sure you have enough balance for the order."
-
-
+        
+        
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: false, completion: nil)
@@ -124,17 +117,17 @@ class paymentMethodVC: UIViewController {
         
         self.paymentMethodTxt = "Alipay"
         performSegue(withIdentifier: Identifiers.backToCheckout, sender: self)
-
+        
         //Show paymentDetailVC
-               let vc = PaymentInstructionVC()
-               vc.paymentImageNo = 5
-               vc.reminderNotice = "Friendly Reminder:"
-               vc.DetailNotice = "Scan the QR code of the rider's Alipay apps to complete the payment. Make sure you have enough balance for the order."
-
-
-               vc.modalTransitionStyle = .coverVertical
-               vc.modalPresentationStyle = .overCurrentContext
-               present(vc, animated: false, completion: nil)
+        let vc = PaymentInstructionVC()
+        vc.paymentImageNo = 5
+        vc.reminderNotice = "Friendly Reminder:"
+        vc.DetailNotice = "Scan the QR code of the rider's Alipay apps to complete the payment. Make sure you have enough balance for the order."
+        
+        
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false, completion: nil)
     }
     
     
@@ -143,5 +136,5 @@ class paymentMethodVC: UIViewController {
         vc.selectedPaymentMethod = self.paymentMethodTxt
     }
     
-
+    
 }

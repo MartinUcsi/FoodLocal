@@ -14,12 +14,15 @@ struct Storyboard {
     static let Main = "Main"
     static let SellerLoginStoryboard = "SellerLoginStoryboard"
     static let RiderLoginStoryboard = "RiderLoginStoryboard"
+    static let homeID = "homeID"
 }
 
 struct StoryboardID {
     static let LoginVC = "loginVC"
     static let sellerloginVC = "SellerloginVC"
     static let RiderloginVC = "RiderloginVC"
+    static let mainTabVC = "mainTabVC"
+    static let OrderScreen = "OrderScreen"
 }
 
 struct AppImage {
@@ -72,5 +75,6 @@ struct Segues {
     static let AddSellerProductOnly = "AddSellerProductOnly"
     static let toAcceptOrderVC = "toAcceptOrderVC"
     static let ToOrderDetail = "ToOrderDetail"
+    static let backToHome = "backToHome"
   
 }

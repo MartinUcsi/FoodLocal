@@ -9,7 +9,7 @@
 import UIKit
 
 class orderDetailVC: UIViewController {
-
+    
     //Outlets
     @IBOutlet weak var orderidTxt: UILabel!
     @IBOutlet weak var userAddressTxt: UITextView!
@@ -25,30 +25,30 @@ class orderDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
         
         
         
         //Show order time
-            let OrderTime = order.timeStamp
-          
-           let aDate = OrderTime.dateValue()
-           let formatter2 = DateFormatter()
-           formatter2.locale = Locale(identifier: "en_US_POSIX")
-          // formatter2.dateFormat = "HH:mm '-' dd/MM/yyyy"
-           formatter2.dateFormat = "d MMM yyyy 'at' h:mm a"
-           let formattedTimeZoneStr = formatter2.string(from: aDate)
-           //print(formattedTimeZoneStr)
+        let OrderTime = order.timeStamp
         
-           
-                  
+        let aDate = OrderTime.dateValue()
+        let formatter2 = DateFormatter()
+        formatter2.locale = Locale(identifier: "en_US_POSIX")
+        // formatter2.dateFormat = "HH:mm '-' dd/MM/yyyy"
+        formatter2.dateFormat = "d MMM yyyy 'at' h:mm a"
+        let formattedTimeZoneStr = formatter2.string(from: aDate)
+        //print(formattedTimeZoneStr)
+        
+        
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-      
-       self.title = formattedTimeZoneStr
-       
+        
+        self.title = formattedTimeZoneStr
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-       // orderidTxt.text = order.id\v
+        // orderidTxt.text = order.id\v
         //print(order.item)
         orderidTxt.text = order.id
         
@@ -57,9 +57,9 @@ class orderDetailVC: UIViewController {
         
         //Append the item into itemArray
         for i in order.item{
-                   itemArray.append("\(i) \n")
-                  
-               }
+            itemArray.append("\(i) \n")
+            
+        }
         
     }
     
@@ -73,10 +73,10 @@ class orderDetailVC: UIViewController {
         
         //Show total amount
         let formatter = NumberFormatter()
-              formatter.numberStyle = .currency
-              if let price = formatter.string(from: order.amount as NSNumber){
-                  priceTxt.text = price
-              }
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: order.amount as NSNumber){
+            priceTxt.text = price
+        }
     }
-
+    
 }

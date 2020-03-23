@@ -19,21 +19,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzB-ia-efs" customClass="RoundedShadowView" customModule="FoodLocalAdmin" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="505" height="186"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-TE-1lQ" customClass="RoundedButton" customModule="FoodLocalAdmin" customModuleProvider="target">
-                                <rect key="frame" x="390" y="131" width="100" height="35"/>
-                                <color key="backgroundColor" red="0.79612585619999998" green="0.2426632168" blue="0.18823529410000001" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="vej-1U-rqC"/>
-                                    <constraint firstAttribute="height" constant="35" id="zyU-lC-8pM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <state key="normal" title="Complete">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="completeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XSq-ds-Laj"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlc-VF-x1L">
                                 <rect key="frame" x="25" y="20" width="104.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
@@ -85,9 +70,7 @@
                         <constraints>
                             <constraint firstItem="bKg-jK-Aum" firstAttribute="leading" secondItem="MzB-ia-efs" secondAttribute="leading" constant="25" id="0tA-3Y-lC3"/>
                             <constraint firstItem="rlc-VF-x1L" firstAttribute="leading" secondItem="MzB-ia-efs" secondAttribute="leading" constant="25" id="1Z2-nB-CEc"/>
-                            <constraint firstAttribute="trailing" secondItem="uVO-TE-1lQ" secondAttribute="trailing" constant="15" id="9f7-Fv-Mc4"/>
                             <constraint firstItem="bKg-jK-Aum" firstAttribute="top" secondItem="rlc-VF-x1L" secondAttribute="bottom" constant="8" id="RGo-2O-rw4"/>
-                            <constraint firstAttribute="bottom" secondItem="uVO-TE-1lQ" secondAttribute="bottom" constant="20" id="UkF-ZM-lJI"/>
                             <constraint firstItem="rlc-VF-x1L" firstAttribute="top" secondItem="MzB-ia-efs" secondAttribute="top" constant="20" id="qaa-oD-j0e"/>
                         </constraints>
                     </view>
@@ -103,7 +86,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="amount" destination="5Ny-Ac-S2H" id="dxy-8K-clm"/>
-                <outlet property="completeBtn" destination="uVO-TE-1lQ" id="IGA-h3-9Hq"/>
                 <outlet property="customerName" destination="dcF-Y1-6Gc" id="eGa-VI-4oV"/>
                 <outlet property="customerPhone" destination="jWF-zP-7v6" id="LNW-cn-Pjb"/>
                 <outlet property="orderNumber" destination="rlc-VF-x1L" id="m6d-29-ef2"/>

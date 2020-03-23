@@ -76,8 +76,51 @@ class UserProfileVC: UIViewController {
 
         return nil
     }
+    
+//    func logOut(){
+//        guard let user = Auth.auth().currentUser else { return }
+//
+//        if user.isAnonymous{
+//            presentLoginController()
+//        }else{
+//            do {
+//                try Auth.auth().signOut()
+//                UserService.logOutUser()
+//
+//
+//                Auth.auth().signInAnonymously { (result, error) in
+//                    if let error = error{
+//                        debugPrint(error)
+//                    }
+//
+//                        self.presentLoginController()
+//
+//
+//
+//                }
+//            } catch {
+//                debugPrint(error)
+//            }
+//        }
+//    }
+    
+    func logOut(){
+        do {
+            try Auth.auth().signOut()
+            UserService.logOutUser()
+            presentLoginController()
+        }catch{
+            print("Error Signing Out \(error)")
+        }
+    }
+    
+    func presentLoginController(){
+        let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard , bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.LoginVC)
+        present(controller, animated: true, completion: nil)
+        
+    }
 
-   
     
     func setUserListener(){
        
@@ -102,6 +145,9 @@ class UserProfileVC: UIViewController {
     
     @IBAction func logoutClicked(_ sender: UIButton) {
         
+       
+        
+        logOut()
     }
     
 }

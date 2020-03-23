@@ -227,7 +227,7 @@ class RiderHomeVC: UIViewController{
             }
             //confirm.setValue(AppColors.blue, forKey: "titleTextColor")
             cancel.setValue(AppColors.red, forKey: "titleTextColor")
-            
+           
             alertController.addAction(confirm)
             alertController.addAction(cancel)
             self.present(alertController, animated: true, completion: nil)
