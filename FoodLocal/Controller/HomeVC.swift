@@ -46,6 +46,7 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setCategoriesListener()
+        UserService.getCurrentUser()
         
     }
     override func viewWillDisappear(_ animated: Bool) {
